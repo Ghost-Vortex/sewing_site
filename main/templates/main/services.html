@@ -1,0 +1,172 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Услуги · Ulagasheff{% endblock %}
+
+{% block content %}
+<section class="container py-5 mt-5 services-page">
+
+  <!-- HERO БЛОК -->
+  <div class="row mb-5">
+    <div class="col-lg-7">
+      <h1 class="mb-3 fw-bold">Услуги производства Ulagasheff</h1>
+      <p class="lead text-white-75">
+        Производим одежду оптом под бренды и селлеров: от базовых футболок
+        до капсульных коллекций и премиальных мантий.
+      </p>
+      <p class="text-white-50 mb-0">
+        Работаем по давальческой схеме и «под ключ»: подбираем материалы,
+        отшиваем, упаковываем и готовим партию к отгрузке на маркетплейсы
+        или в розницу.
+      </p>
+    </div>
+    <div class="col-lg-5 mt-4 mt-lg-0">
+      <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+        <div class="mb-3">
+          <div class="small text-white-50 text-uppercase mb-1">Форматы работы</div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="service-chip">Давальческое сырьё</span>
+            <span class="service-chip">Под ключ</span>
+            <span class="service-chip">Малые партии</span>
+          </div>
+        </div>
+        <div class="d-flex gap-4 flex-wrap">
+          <div>
+            <div class="small text-white-50 text-uppercase mb-1">Минимальный тираж</div>
+            <div class="fw-semibold">от 150 ед. на модель</div>
+          </div>
+          <div>
+            <div class="small text-white-50 text-uppercase mb-1">Производительность</div>
+            <div class="fw-semibold">до 10 000 ед./мес</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- БЛОК 1: ПРОИЗВОДСТВО ОДЕЖДЫ -->
+  <div class="mb-4 d-flex justify-content-between align-items-center gap-3">
+    <h2 class="h4 fw-bold mb-0">Производство одежды</h2>
+    <span class="text-white-50 small">
+      Полный цикл: от лекал и раскроя до упаковки и маркировки
+    </span>
+  </div>
+
+  <div class="row g-4 service-grid mb-5">
+    <div class="col-md-4">
+      <div class="service-card glass-card p-4 reveal">
+        <div class="service-icon">🧥</div>
+        <h3 class="h5 mb-2">Мантии и капсулы</h3>
+        <p class="text-white-50 mb-3">
+          Пошив авторских мантий и капсульных коллекций в премиальном сегменте:
+          чёткая посадка, плотные ткани, аккуратные швы.
+        </p>
+        <div class="service-meta text-white-50 small">
+          Тираж: от 150 ед. · Формат: давальческое сырьё / под ключ
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="service-card glass-card p-4 reveal">
+        <div class="service-icon">👕</div>
+        <h3 class="h5 mb-2">Базовый трикотаж</h3>
+        <p class="text-white-50 mb-3">
+          Футболки, лонги, свитшоты, худи и зип-свитшоты для брендов и
+          маркетплейсов. Стабильные лекала и повторяемость партий.
+        </p>
+        <div class="service-meta text-white-50 small">
+          Тираж: от 200–300 ед. · Серийный пошив
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="service-card glass-card p-4 reveal">
+        <div class="service-icon">📐</div>
+        <h3 class="h5 mb-2">Разработка моделей</h3>
+        <p class="text-white-50 mb-3">
+          Построение лекал, подбор материалов, градация размеров, тестовый образец
+          и подготовка изделия к запуску в тираж.
+        </p>
+        <div class="service-meta text-white-50 small">
+          Формат: под ключ · Включая сопровождение технолога
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- БЛОК 2: БРЕНДИНГ И ОФОРМЛЕНИЕ -->
+  <div class="mb-4 d-flex justify-content-between align-items-center gap-3">
+    <h2 class="h4 fw-bold mb-0">Брендинг и оформление</h2>
+    <span class="text-white-50 small">
+      Всё, что делает изделие готовым к продаже под вашим брендом
+    </span>
+  </div>
+
+  <div class="row g-4 service-grid mb-5">
+    <div class="col-md-4">
+      <div class="service-card glass-card p-4 reveal">
+        <div class="service-icon">🧵</div>
+        <h3 class="h5 mb-2">Машинная вышивка</h3>
+        <p class="text-white-50 mb-3">
+          Промышленная вышивка логотипов, надписей и графики на изделиях.
+          Возможны шевроны и отдельные нашивки.
+        </p>
+        <div class="service-meta text-white-50 small">
+          Формат: на наших изделиях или на давальческих
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="service-card glass-card p-4 reveal">
+        <div class="service-icon">🏷️</div>
+        <h3 class="h5 mb-2">Маркировка и упаковка</h3>
+        <p class="text-white-50 mb-3">
+          Нашивки, бирки, ярлыки, упаковка по ТЗ, подготовка к отгрузке
+          на маркетплейсы и в розничные магазины.
+        </p>
+        <div class="service-meta text-white-50 small">
+          Упаковка поштучно или партиями · маркировка по требованиям клиента
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="service-card glass-card p-4 reveal">
+        <div class="service-icon">🤝</div>
+        <h3 class="h5 mb-2">Производство для брендов</h3>
+        <p class="text-white-50 mb-3">
+          Сопровождаем бренды и селлеров: помогаем с запуском линейки,
+          тиражированием успешных моделей и масштабированием объёмов.
+        </p>
+        <div class="service-meta text-white-50 small">
+          Долгосрочное сотрудничество · персональный менеджер
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section mt-4">
+    <div class="cta-inner d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+      <div>
+        <span class="cta-badge mb-2 d-inline-block">Запрос проекта</span>
+        <h2 class="h4 fw-bold mb-2">Хотите рассчитать заказ?</h2>
+        <p class="text-white-50 mb-0">
+          Пришлите техническое задание, фото или референсы — подготовим
+          предварительный расчёт, подскажем по материалам и срокам производства.
+        </p>
+      </div>
+      <div class="text-md-end">
+        <a href="/contacts/" class="btn btn-light px-4 py-2 fw-semibold"
+           style="border-radius: 14px; letter-spacing: 0.08em; text-transform: uppercase;">
+          Оставить запрос
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "main/base.html" %}
+{% block title %}Контакты · Ulagasheff{% endblock %}
+
+{% block content %}
+<section class="container py-5 mt-5 contact-page reveal">
+
+  <div class="row g-4 align-items-stretch">
+    <!-- ЛЕВЫЙ БЛОК: КОНТАКТЫ -->
+    <div class="col-lg-5">
+      <div class="glass-card h-100 p-4 p-md-5">
+        <span class="contact-badge mb-3 d-inline-block">Контакты</span>
+        <h1 class="h3 fw-bold mb-3">Связаться с Ulagasheff</h1>
+        <p class="text-white-50 mb-4">
+          Напишите нам, если хотите рассчитать тираж, запустить капсулу
+          или обсудить производство под ваш бренд. Отвечаем лично и по делу.
+        </p>
+
+        <div class="d-flex flex-column gap-3 mb-4">
+          <div>
+            <div class="small text-white-50 text-uppercase mb-1">Телеграм</div>
+            <a href="https://t.me/@NatalyUmka" class="contact-link">@NatalyUmka</a>
+          </div>
+
+          <div>
+            <div class="small text-white-50 text-uppercase mb-1">Email</div>
+            <a href="mailto:info@ulagasheff.com" class="contact-link">
+              info@ulagasheff.com
+            </a>
+          </div>
+
+          <div>
+            <div class="small text-white-50 text-uppercase mb-1">Телефон</div>
+            <a>
+              +7 (985) 482-50-71
+            </a>
+          </div>
+        </div>
+
+        <div class="small text-white-50">
+          Москва, Перово · Производство 200 м² · Удобный подъезд для разгрузки
+          и отгрузки готовых партий.
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРАВЫЙ БЛОК: ФОРМА -->
+    <div class="col-lg-7">
+      <div class="glass-card contact-form-card p-4 p-md-5">
+        <span class="contact-badge mb-2 d-inline-block">Запрос на производство</span>
+        <h2 class="h4 fw-bold mb-2">Расскажите о вашем проекте</h2>
+        <p class="text-white-50 mb-4">
+          Пара строк о том, что вы хотите произвести, — и мы вернёмся
+          с вопросами, вариантами и предварительным расчётом.
+        </p>
+
+        <form method="post" action="{% url 'contact_submit' %}" novalidate>
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label form-label-light">Имя</label>
+              <input type="text"
+                     name="name"
+                     class="form-control form-control-dark"
+                     placeholder="Как к вам обращаться?"
+                     required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label form-label-light">Контакт</label>
+              <input type="text"
+                     name="contact"
+                     class="form-control form-control-dark"
+                     placeholder="@telegram, телефон или email"
+                     required>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label form-label-light">Что хотите произвести?</label>
+              <textarea name="message"
+                        class="form-control form-control-dark"
+                        rows="4"
+                        placeholder="Например: мантии 150 шт., базовые свитшоты, сроки, бюджет..."></textarea>
+            </div>
+
+            <div class="col-12 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mt-2">
+              <button class="btn btn-light px-4 py-2 fw-semibold"
+                      style="border-radius: 14px; letter-spacing: 0.08em; text-transform: uppercase;">
+                Отправить запрос
+              </button>
+              <p class="small text-white-50 mb-0">
+                Обычно отвечаем в течение рабочего дня.
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock %}

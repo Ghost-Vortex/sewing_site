@@ -1,0 +1,60 @@
+<footer class="site-footer mt-5">
+  <div class="container footer-main py-5">
+
+    <div class="row gy-4">
+
+      <!-- ЛОГО + КОПИРАЙТ -->
+      <div class="col-md-4">
+        <div class="footer-logo mb-3">
+          ULAGASHEFF
+        </div>
+        <div class="text-white-50 small mb-3">
+          © {{ now|default:"2025" }} Ulagasheff — швейное производство одежды.
+        </div>
+        <div class="footer-office small text-white-60">
+          <div class="mb-1">Офис и производство:</div>
+          <div>Москва, район Перово</div>
+          <div>Бизнес-центр, площадь цеха ~200 м²</div>
+          <div class="mt-2">Принимаем заказы по предварительной договорённости.</div>
+        </div>
+      </div>
+
+      <!-- СЕРЕДИНА: МЕНЮ -->
+      <div class="col-md-4">
+        <nav class="footer-nav">
+          <a href="{% url 'services' %}" class="footer-nav-link">Услуги</a>
+          <a href="{% url 'works' %}" class="footer-nav-link">Работы</a>
+          <a href="{% url 'about' %}" class="footer-nav-link">О нас</a>
+          <a href="{% url 'contacts' %}" class="footer-nav-link">Контакты</a>
+        </nav>
+      </div>
+
+      <!-- ПРАВО: КОНТАКТЫ + РЕЖИМ -->
+      <div class="col-md-4">
+        <div class="footer-contacts small mb-3">
+          <div class="mb-1 text-white-60">Связаться:</div>
+          <div><span class="text-white-50">Telegram:</span> <a href="https://t.me/ayman" class="footer-link">@ayman</a></div>
+          <div><span class="text-white-50">Instagram:</span> <a href="https://instagram.com/ulagasheff" class="footer-link">@ulagasheff</a></div>
+          <div><span class="text-white-50">Email:</span> <a href="mailto:info@ulagasheff.com" class="footer-link">info@ulagasheff.com</a></div>
+        </div>
+        <div class="footer-schedule small text-white-60">
+          <div>График: пн–пт, 11:00–20:00</div>
+          <div>Встречи в офисе по предварительной записи.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- НИЖНЯЯ СТРОКА -->
+    <div class="footer-bottom mt-4 pt-3 d-flex flex-column flex-md-row justify-content-between align-items-start gap-2">
+      <a href="{% url 'privacy' %}" class="footer-link small">
+         Политика конфиденциальности
+      </a>
+
+      <div class="small text-white-60">
+        Производство одежды для брендов и маркетплейсов.
+      </div>
+    </div>
+
+  </div>
+</footer>

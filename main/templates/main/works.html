@@ -1,0 +1,248 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Наши работы · Ulagasheff{% endblock %}
+
+{% block content %}
+<section class="container py-5 mt-5 reveal works-page">
+
+  <!-- ХЕДЕР РАЗДЕЛА -->
+  <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-3">
+    <div>
+      <h1 class="mb-2 fw-bold">Наши работы</h1>
+      <p class="text-white-50 mb-0">
+        Часть изделий, созданных на производстве Ulagasheff: от единичных капсул до серийных партий
+        для брендов и селлеров маркетплейсов.
+      </p>
+    </div>
+    <div class="text-md-end small text-white-50">
+      Партии от 150 единиц · Производительность до 10&nbsp;000 изделий в месяц
+    </div>
+  </div>
+
+  <!-- НЕБОЛЬШАЯ ПОДПИСКА-ЛЕГЕНДА -->
+  <div class="catalog-hint mb-4">
+    <span class="catalog-hint-title">Что вы видите в каталоге:</span>
+    <span class="catalog-hint-pill">капсулы для брендов</span>
+    <span class="catalog-hint-pill">коллекции для маркетплейсов</span>
+    <span class="catalog-hint-pill">лимитированные дропы</span>
+  </div>
+
+  <!-- СЕТКА РАБОТ -->
+  <div class="row g-4 works-grid">
+
+    <!-- Карточка 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/2-4.webp' %}" alt="Мантия 1">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Туника удлинённая</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">Outerwear</span>
+            <span class="work-note small text-white-50">партия для бренда</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 2 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/2-5.webp' %}" alt="Мантия 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Мантия с замком</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">Outerwear</span>
+            <span class="work-note small text-white-50">партия для бренда</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 3 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/OMSA_ 668.jpg' %}" alt="Туника 1">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Брюки Вельвет</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">Drop</span>
+            <span class="work-note small text-white-50">лимитированный релиз</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 4 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/OMSA_ 710.jpg' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Свитшот Вельвет</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">Drop</span>
+            <span class="work-note small text-white-50">лимитированный релиз</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 5 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/WhatsApp-Image-2022-03-09-at-17.57.27.jpeg' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Комбинезон</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">Drop</span>
+            <span class="work-note small text-white-50">лимитированный релиз</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Карточка 6 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/WhatsApp-Image-2022-03-09-at-17.57.14.jpeg' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Комбинезон</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">Drop</span>
+            <span class="work-note small text-white-50">лимитированный релиз</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Карточка 7 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/image-03-04-24-03-08-15.jpeg' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Зип-Свитшот</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">Drop</span>
+            <span class="work-note small text-white-50">коллекция для маркетплейсов</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Карточка 8 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/9.111274.jpg' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Сетка</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">OUTERWEAR</span>
+            <span class="work-note small text-white-50">партия для бренда</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Карточка 9 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/1-7.webp' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Дизайнерский костюм</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">capsule</span>
+            <span class="work-note small text-white-50">Капсула для шоу-рума</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Карточка 10 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/1-8.webp' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Лонгслив</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">drop</span>
+            <span class="work-note small text-white-50">коллекция для маркетплейсов</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Карточка 11 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/1-9.webp' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Шорты</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">OUTERWEAR</span>
+            <span class="work-note small text-white-50">партия для бренда</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Карточка 12 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="glass-card p-2 h-100 work-card">
+        <div class="work-image-wrap">
+          <img src="{% static 'main/img/2-6.webp' %}" alt="Туника 2">
+        </div>
+        <div class="mt-2">
+          <div class="work-caption">Мантия с принтом</div>
+          <div class="d-flex justify-content-between align-items-center mt-1">
+            <span class="work-tag">OUTERWEAR</span>
+            <span class="work-note small text-white-50">партия для бренда</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- дальше просто дублируешь по тому же шаблону под любые вещи:
+         брюки, худи, сет, капсула, мерч и т.д. -->
+
+  </div>
+</section>
+{% endblock %}
