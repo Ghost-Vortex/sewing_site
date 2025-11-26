@@ -1401,3 +1401,48 @@ body {
     gap: 0.9rem;
   }
 }
+
+/* Герой отдельно тюним под мобилки */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+    align-items: flex-start;
+    background-position: center top;
+  }
+
+  .hero-content .row {
+    flex-direction: column;
+  }
+
+  .hero .col-lg-6,
+  .hero .col-lg-5 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-form-card {
+    margin-top: 1.8rem;
+  }
+}
+/* ==== Мобилка / планшет: герой не режем, форму показываем полностью ==== */
+@media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+    height: auto;
+    align-items: flex-start;
+    overflow: visible;          /* главное: не прятать низ секции */
+    padding: 4.5rem 0 3rem;     /* чтобы все дышало */
+    background-position: center top;
+  }
+
+  .hero-content .row {
+    flex-direction: column;     /* текст сверху, форма ниже */
+    row-gap: 2rem;
+  }
+
+  .hero-form-card {
+    margin-top: 0.5rem;
+  }
+}
