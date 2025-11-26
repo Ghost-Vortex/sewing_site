@@ -19,19 +19,36 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  // Бургер-меню
+  // Бургер-меню (фикс для мобилок)
   if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      toggle.classList.toggle('open');
-      nav.classList.toggle('open');
+    const closeMenu = () => {
+      toggle.classList.remove('open');
+      nav.classList.remove('open');
+    };
+
+    // открыть / закрыть по нажатию на кнопку
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();               // чтобы клик не улетал дальше
+      if (nav.classList.contains('open')) {
+        closeMenu();
+      } else {
+        toggle.classList.add('open');
+        nav.classList.add('open');
+      }
     });
 
     // закрывать меню при клике по ссылке
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        toggle.classList.remove('open');
-        nav.classList.remove('open');
-      });
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // закрывать меню при клике вне его области
+    document.addEventListener('click', (e) => {
+      const insideNav = nav.contains(e.target);
+      const onToggle = toggle.contains(e.target);
+      if (!insideNav && !onToggle) {
+        closeMenu();
+      }
     });
   }
 
