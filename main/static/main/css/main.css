@@ -1086,20 +1086,16 @@ textarea.form-control-dark {
 
 
 /* ===========================
-   MEDIA-АДАПТАЦИЯ
-   =========================== */
-
-/* ===========================
    MOBILE LUX ADAPTATION
    =========================== */
 
-/* Чтоб не было горизонтального скролла нигде */
+/* чтобы НИГДЕ не было горизонтального скролла */
 html,
 body {
   overflow-x: hidden;
 }
 
-/* --- Планшеты и ниже (до 992px) --- */
+/* ---------- Планшеты и ниже (до 992px) ---------- */
 @media (max-width: 992px) {
   body {
     padding-top: 64px;
@@ -1125,7 +1121,6 @@ body {
     margin-top: 1.5rem;
   }
 
-  /* карточки, чтобы не казались слишком тяжёлыми */
   .glass-card,
   .step-card,
   .service-card,
@@ -1157,20 +1152,54 @@ body {
   }
 }
 
-/* --- Телефоны (до 768px) --- */
+/* ---------- Телефоны (до 768px) ---------- */
 @media (max-width: 768px) {
+
+  /* хедер — чуть плотнее, бургер ближе к центру */
+  .main-header .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .menu-toggle {
+    margin-right: 4px;
+  }
+
+  /* бургер-меню */
+  .nav-menu {
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(5,5,10,0.96);
+    padding: 0.75rem 1.5rem 1rem;
+    border-radius: 0 0 18px 18px;
+    border: 1px solid rgba(255,255,255,0.06);
+    z-index: 100;
+  }
+
+  .nav-menu.open {
+    display: flex !important;
+  }
+
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
+  /* hero — текст сверху, форма сразу под ним */
   .hero {
+    display: block;
     padding-top: 4.5rem;
     padding-bottom: 2.5rem;
   }
 
   .hero-content .row {
+    display: flex;
     flex-direction: column;
+    gap: 1.5rem;
   }
 
   .hero .col-lg-6,
@@ -1196,9 +1225,8 @@ body {
     padding: 1.4rem !important;
   }
 
-  /* Форма, чтобы выглядела как отдельный премиальный блок */
   .hero .glass-card {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
   }
 
   .form-control,
@@ -1213,19 +1241,11 @@ body {
     font-size: 0.9rem;
   }
 
-  /* Блоки "Наше производство" и "Наши работы" — один столбец */
+  /* “Наше производство” и “Наши работы” по ДВЕ в ряд */
   .production-photos .row > div,
   .works-preview-grid .col-6 {
     flex: 0 0 50%;
     max-width: 50%;
-  }
-
-  @media (max-width: 600px) {
-    .production-photos .row > div,
-    .works-preview-grid .col-6 {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
   }
 
   .production-photo-inner img {
@@ -1234,13 +1254,13 @@ body {
 
   .work-image-wrap img {
     height: 230px;
+    object-fit: cover; /* заполнение карточки */
   }
 
   .step-card {
     min-height: auto;
   }
 
-  /* FAQ — чтобы не перегружал */
   .premium-accordion .accordion-button {
     font-size: 0.95rem;
     padding: 0.8rem 0;
@@ -1250,7 +1270,6 @@ body {
     font-size: 0.9rem;
   }
 
-  /* Футер — аккуратной колонкой */
   .footer-main {
     padding-top: 2.5rem !important;
     padding-bottom: 2.5rem !important;
@@ -1272,7 +1291,7 @@ body {
   }
 }
 
-/* --- Маленькие телефоны (до 576px) --- */
+/* ---------- Маленькие телефоны (до 576px) ---------- */
 @media (max-width: 576px) {
   body {
     font-size: 0.95rem;
@@ -1301,7 +1320,7 @@ body {
   }
 
   .work-image-wrap img {
-    height: 200px;
+    height: 210px;
   }
 
   .production-photo-inner img {
@@ -1334,7 +1353,6 @@ body {
     font-size: 0.75rem;
   }
 
-  /* Форма на странице контактов */
   .contact-form-card {
     margin-top: 1.8rem;
   }
@@ -1344,7 +1362,7 @@ body {
   }
 }
 
-/* --- Очень маленькие (до 400px) --- */
+/* ---------- Очень маленькие (до 400px) ---------- */
 @media (max-width: 400px) {
   .logo {
     font-size: 1rem;
@@ -1381,25 +1399,5 @@ body {
 
   .clients-row {
     gap: 0.9rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none !important;   /* прячем меню */
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: rgba(5,5,10,0.96);
-    padding: 0.75rem 1.5rem 1rem;
-    border-radius: 0 0 18px 18px;
-    border: 1px solid rgba(255,255,255,0.06);
-    z-index: 100;
-  }
-
-  .nav-menu.open {
-    display: flex !important;   /* показываем меню */
   }
 }
