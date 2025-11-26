@@ -2,20 +2,70 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Швейное производство{% endblock %}</title>
+  <title>{% block title %}Швейное производство · Ulagasheff{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% load static %}
 
-  <!-- Bootstrap -->
+  <!-- ====== Яндекс Верификация (ОБЯЗАТЕЛЬНО) ====== -->
+  <meta name="yandex-verification" content="6a15f4e5e5c926a0">
+
+  <!-- ====== FAVICONS ====== -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'main/img/favicon-32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'main/img/favicon-16.png' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'main/img/favicon-180.png' %}">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- Цвет вкладки -->
+  <meta name="theme-color" content="#0b0b10">
+
+  <!-- ====== SEO ====== -->
+  <meta name="description"
+        content="Ulagasheff — премиальное швейное производство в Москве. Пошив одежды, мантии, туник, капсульных коллекций и мерча для брендов. Лучшие ткани и ручная обработка.">
+
+  <!-- ====== OpenGraph ====== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ulagasheff">
+  <meta property="og:title" content="Швейное производство · Ulagasheff">
+  <meta property="og:description"
+        content="Производство одежды под бренды: мантии, туники, капсулы, корпоративный мерч. Премиальное качество. Москва.">
+  <meta property="og:url" content="https://ulagasheff.ru/">
+  <meta property="og:image" content="https://ulagasheff.ru/static/main/img/og-cover.jpg">
+
+  <!-- ====== MICRODATA (для Яндекс + Google) ====== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ulagasheff",
+    "url": "https://ulagasheff.ru",
+    "logo": "https://ulagasheff.ru/static/main/img/favicon-512.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Москва",
+      "addressCountry": "RU"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": "ru"
+    }
+  }
+  </script>
+
+  <!-- ====== Bootstrap ====== -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet">
 
-  <!-- Наши стили -->
+  <!-- ====== Основные стили ====== -->
   <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+
 </head>
+
+<!-- Яндекс карты -->
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
 <body>
 
 {% if messages %}
@@ -36,7 +86,9 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Наш JS -->
+
+  <!-- Our JS -->
   <script src="{% static 'main/js/main.js' %}"></script>
+
 </body>
 </html>

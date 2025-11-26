@@ -1089,13 +1089,317 @@ textarea.form-control-dark {
    MEDIA-АДАПТАЦИЯ
    =========================== */
 
-@media (max-width: 576px) {
-  .works-page {
-    padding: 1.25rem;
-    border-radius: 18px;
+/* ===========================
+   MOBILE LUX ADAPTATION
+   =========================== */
+
+/* Чтоб не было горизонтального скролла нигде */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* --- Планшеты и ниже (до 992px) --- */
+@media (max-width: 992px) {
+  body {
+    padding-top: 64px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 5rem 0 3rem;
+    align-items: flex-start;
+    background-position: center top;
+  }
+
+  .hero .display-4 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  .hero .lead {
+    font-size: 1rem;
+  }
+
+  .hero .glass-card {
+    margin-top: 1.5rem;
+  }
+
+  /* карточки, чтобы не казались слишком тяжёлыми */
+  .glass-card,
+  .step-card,
+  .service-card,
+  .production-photo-card,
+  .review-card {
+    box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+  }
+
+  .production-photo-inner img {
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .works-preview-grid img {
+    height: 230px;
+  }
+
+  .step-card {
+    padding: 1.4rem 1.4rem 2.4rem;
+  }
+
+  .cta-section {
+    padding: 2.2rem 1.6rem;
+    border-radius: 26px;
+  }
+
+  .clients-row {
+    gap: 1.3rem;
+  }
+}
+
+/* --- Телефоны (до 768px) --- */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero {
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-content .row {
+    flex-direction: column;
+  }
+
+  .hero .col-lg-6,
+  .hero .col-lg-5 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero .display-4 {
+    font-size: 1.9rem;
+  }
+
+  .hero .lead {
+    font-size: 0.98rem;
+  }
+
+  .hero p {
+    font-size: 0.94rem;
+  }
+
+  .glass-card {
+    border-radius: 20px;
+    padding: 1.4rem !important;
+  }
+
+  /* Форма, чтобы выглядела как отдельный премиальный блок */
+  .hero .glass-card {
+    margin-top: 2rem;
+  }
+
+  .form-control,
+  .form-control-dark {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.85rem;
+  }
+
+  button.btn,
+  .btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Блоки "Наше производство" и "Наши работы" — один столбец */
+  .production-photos .row > div,
+  .works-preview-grid .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  @media (max-width: 600px) {
+    .production-photos .row > div,
+    .works-preview-grid .col-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .production-photo-inner img {
+    height: 210px;
   }
 
   .work-image-wrap img {
-    height: 210px;
+    height: 230px;
+  }
+
+  .step-card {
+    min-height: auto;
+  }
+
+  /* FAQ — чтобы не перегружал */
+  .premium-accordion .accordion-button {
+    font-size: 0.95rem;
+    padding: 0.8rem 0;
+  }
+
+  .premium-accordion .accordion-body {
+    font-size: 0.9rem;
+  }
+
+  /* Футер — аккуратной колонкой */
+  .footer-main {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .site-footer .row > div {
+    text-align: left;
+  }
+
+  .footer-nav {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 1.6rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}
+
+/* --- Маленькие телефоны (до 576px) --- */
+@media (max-width: 576px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  h1,
+  .display-4 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  .hero {
+    padding-top: 4rem;
+  }
+
+  .works-page {
+    padding: 1.1rem;
+    border-radius: 16px;
+  }
+
+  .work-image-wrap img {
+    height: 200px;
+  }
+
+  .production-photo-inner img {
+    height: 190px;
+  }
+
+  .step-card {
+    padding: 1.25rem 1.25rem 2.2rem;
+  }
+
+  .step-number {
+    right: 1.1rem;
+    bottom: 1rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .client-logo {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+  }
+
+  .cta-section {
+    padding: 2rem 1.4rem;
+  }
+
+  .cta-badge {
+    font-size: 0.75rem;
+  }
+
+  /* Форма на странице контактов */
+  .contact-form-card {
+    margin-top: 1.8rem;
+  }
+
+  .contact-badge {
+    font-size: 0.7rem;
+  }
+}
+
+/* --- Очень маленькие (до 400px) --- */
+@media (max-width: 400px) {
+  .logo {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .menu-toggle span {
+    width: 20px;
+  }
+
+  .hero .display-4 {
+    font-size: 1.55rem;
+  }
+
+  .hero .lead {
+    font-size: 0.9rem;
+  }
+
+  .glass-card {
+    padding: 1.2rem !important;
+  }
+
+  .form-control,
+  .form-control-dark {
+    font-size: 0.9rem;
+    padding: 0.55rem 0.8rem;
+  }
+
+  button.btn,
+  .btn {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .clients-row {
+    gap: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none !important;   /* прячем меню */
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(5,5,10,0.96);
+    padding: 0.75rem 1.5rem 1rem;
+    border-radius: 0 0 18px 18px;
+    border: 1px solid rgba(255,255,255,0.06);
+    z-index: 100;
+  }
+
+  .nav-menu.open {
+    display: flex !important;   /* показываем меню */
   }
 }
