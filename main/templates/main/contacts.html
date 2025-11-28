@@ -1,6 +1,32 @@
 {% extends "main/base.html" %}
 {% block title %}Контакты · Ulagasheff{% endblock %}
 
+{% block meta_description %}
+<meta name="description"
+      content="Связаться со швейным производством Ulagasheff: Телеграм, Instagram, email. Производство в Москве, район Перово.">
+{% endblock %}
+
+{% block breadcrumbs_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Главная",
+    "item": "https://ulagasheff.ru/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Контакты",
+    "item": "https://ulagasheff.ru/contacts/"
+  }]
+}
+</script>
+{% endblock %}
+
+
 {% block content %}
 <section class="container py-5 mt-5 contact-page reveal">
 

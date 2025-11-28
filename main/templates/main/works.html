@@ -3,6 +3,35 @@
 
 {% block title %}Наши работы · Ulagasheff{% endblock %}
 
+
+{% block meta_description %}
+<meta name="description"
+      content="Примеры изделий швейного производства Ulagasheff: мантии, туники, капсульные коллекции и мерч для брендов. Ручная обработка и плотные ткани.">
+{% endblock %}
+{% block og_title %}Наши работы · Ulagasheff{% endblock %}
+{% block og_description %}Сильные образы: мантии, туники и капсулы, отшитые для брендов и маркетплейсов.{% endblock %}
+
+{% block breadcrumbs_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Главная",
+    "item": "https://ulagasheff.ru/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Работы",
+    "item": "https://ulagasheff.ru/works/"
+  }]
+}
+</script>
+{% endblock %}
+
+
 {% block content %}
 <section class="container py-5 mt-5 reveal works-page">
 
