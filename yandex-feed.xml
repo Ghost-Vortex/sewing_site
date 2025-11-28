@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2025-11-26T12:00:00">
+  <shop>
+    <name>Ulagasheff</name>
+    <company>Швейное производство Ulagasheff</company>
+    <url>https://ulagasheff.ru/</url>
+
+    <categories>
+      <category id="1">Швейное производство</category>
+      <category id="2" parentId="1">Пошив одежды оптом</category>
+      <category id="3" parentId="1">Корпоративная и брендовая одежда</category>
+      <category id="4" parentId="1">Машинная вышивка и брендинг</category>
+    </categories>
+
+    <offers>
+
+      <!-- Пошив футболок -->
+      <offer id="101" available="true">
+        <categoryId>2</categoryId>
+        <name>Пошив футболок оптом</name>
+        <url>https://ulagasheff.ru/services/</url>
+        <price>250</price>
+        <currencyId>RUB</currencyId>
+        <picture>https://ulagasheff.ru/static/main/img/OMSA_%20668.jpg</picture>
+        <description>
+          Швейное производство Ulagasheff, район Перово (юго-восток Москвы).
+          Пошив базовых футболок из трикотажных полотен на давальческом
+          сырье и под ключ. Производство расположено в бизнес-центре,
+          площадь 200 м², удобный подъезд для разгрузки сырья и погрузки
+          готовой продукции. Современный парк оборудования: прямострочные
+          автоматы, оверлоки, распошивальные, поясная, петельная,
+          пуговичная, автоматы для установки кнопок и люверсов,
+          промышленная вышивальная машина, раскройный стол 7 метров.
+          Качество уровня middle up при производительности до 10 000 ед./мес.
+        </description>
+        <params>
+          <param name="Город">Москва</param>
+          <param name="Район">Перово, Юго-Восток Москвы</param>
+          <param name="Минимальный заказ">150 единиц на модель</param>
+          <param name="Схема работы">Давальческое сырье / под ключ</param>
+          <param name="Базовая цена (давальческая схема)">от 250 ₽ за единицу</param>
+          <param name="Базовая цена (под ключ)">от 550 ₽ за единицу</param>
+          <param name="Тип изделий">Футболки</param>
+        </params>
+      </offer>
+
+      <!-- Пошив лонгов -->
+      <offer id="102" available="true">
+        <categoryId>2</categoryId>
+        <name>Пошив лонгов и базовых верхов</name>
+        <url>https://ulagasheff.ru/services/</url>
+        <price>300</price>
+        <currencyId>RUB</currencyId>
+        <picture>https://ulagasheff.ru/static/main/img/OMSA_%20710.jpg</picture>
+        <description>
+          Производство лонгсливов и базовых изделий второго слоя.
+          Работаем с женской и мужской одеждой, трикотажем и тканями.
+          Возможна работа как на давальческом, так и на собственном сырье под ключ.
+          В штате: закройщик, технолог, ОТК, ВТО, швей, упаковщики, маркировщики.
+          Высокая скорость выполнения заказов, гибкие условия сотрудничества
+          и любая удобная форма оплаты.
+        </description>
+        <params>
+          <param name="Тип изделий">Лонги, базовый верх</param>
+          <param name="Минимальный заказ">150 единиц на модель</param>
+          <param name="Базовая цена (давальческая схема)">от 300 ₽</param>
+          <param name="Базовая цена (под ключ)">от 600 ₽</param>
+          <param name="Качество">Middle up</param>
+        </params>
+      </offer>
+
+      <!-- Свитшоты / худи -->
+      <offer id="103" available="true">
+        <categoryId>3</categoryId>
+        <name>Пошив свитшотов и худи для брендов и маркетплейсов</name>
+        <url>https://ulagasheff.ru/works/</url>
+        <price>450</price>
+        <currencyId>RUB</currencyId>
+        <picture>https://ulagasheff.ru/static/main/img/2-4.webp</picture>
+        <description>
+          Пошив свитшотов, худи и изделий второго слоя для брендов одежды
+          и селлеров на маркетплейсах. Являемся подрядчиками известных брендов
+          и производителей. Полный цикл: пошив, ВТО, упаковка, маркировка.
+          Возможна промышленная вышивка логотипов и шевронов, а также
+          нанесение принтов (сублимация).
+        </description>
+        <params>
+          <param name="Тип изделий">Свитшоты, худи</param>
+          <param name="Минимальный заказ">150 единиц на модель</param>
+          <param name="Базовая цена (давальческая схема)">от 450 ₽</param>
+          <param name="Базовая цена (под ключ)">от 650 ₽</param>
+          <param name="Производительность">до 10 000 ед. в месяц</param>
+        </params>
+      </offer>
+
+      <!-- Зип-свитшоты / куртки -->
+      <offer id="104" available="true">
+        <categoryId>3</categoryId>
+        <name>Пошив зип-свитшотов и верхних изделий</name>
+        <url>https://ulagasheff.ru/works/</url>
+        <price>550</price>
+        <currencyId>RUB</currencyId>
+        <picture>https://ulagasheff.ru/static/main/img/2-5.webp</picture>
+        <description>
+          Производство зип-свитшотов и других изделий с молнией
+          для брендов и корпоративных клиентов. Работаем по ТЗ заказчика,
+          прорабатываем лекала, посадку, фурнитуру. Возможно полное ведение
+          проекта под ключ — от подбора материалов до готового изделия
+          «под магазин».
+        </description>
+        <params>
+          <param name="Тип изделий">Зип-свитшоты, кардиганы</param>
+          <param name="Минимальный заказ">150 единиц на модель</param>
+          <param name="Базовая цена (давальческая схема)">от 550 ₽</param>
+          <param name="Базовая цена (под ключ)">от 850 ₽</param>
+        </params>
+      </offer>
+
+      <!-- Мантии -->
+      <offer id="105" available="true">
+        <categoryId>3</categoryId>
+        <name>Пошив мантий премиум-класса</name>
+        <url>https://ulagasheff.ru/works/</url>
+        <price>600</price>
+        <currencyId>RUB</currencyId>
+        <picture>https://ulagasheff.ru/static/main/img/2-4.webp</picture>
+        <description>
+          Специализируемся на пошиве премиальных мантий и авторских моделей
+          для брендов и креаторов. Плотные трикотажные полотна, точная посадка,
+          проработанные лекала и аккуратная обработка швов. Возможна работа
+          как на сырье заказчика, так и под ключ с подбором ткани и фурнитуры.
+        </description>
+        <params>
+          <param name="Тип изделий">Мантии</param>
+          <param name="Минимальный заказ">150 единиц на модель</param>
+          <param name="Базовая цена (давальческая схема)">от 600 ₽</param>
+          <param name="Базовая цена (под ключ)">от 900 ₽</param>
+          <param name="Целевая аудитория">Бренды одежды, селлеры маркетплейсов</param>
+        </params>
+      </offer>
+
+      <!-- Промышленная машинная вышивка -->
+      <offer id="106" available="true">
+        <categoryId>4</categoryId>
+        <name>Промышленная машинная вышивка логотипов и шевронов</name>
+        <url>https://ulagasheff.ru/services/</url>
+        <price>100</price>
+        <currencyId>RUB</currencyId>
+        <picture>https://ulagasheff.ru/static/main/img/034C2F7B-E04D-428C-B459-32273DAF404C.PNG</picture>
+        <description>
+          Услуги промышленной машинной вышивки логотипов на одежде, шевронов
+          и фирменных элементов. Современная вышивальная машина, аккуратная
+          посадка рисунка и стабильное качество. Работаем с брендами,
+          корпоративными заказчиками и селлерами маркетплейсов.
+        </description>
+        <params>
+          <param name="Тип услуги">Машинная вышивка</param>
+          <param name="Минимальный тираж">по согласованию</param>
+          <param name="Применение">Логотипы, шевроны, фирменные элементы</param>
+        </params>
+      </offer>
+
+    </offers>
+  </shop>
+</yml_catalog>
