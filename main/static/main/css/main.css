@@ -175,7 +175,7 @@ main {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: url("https://images.pexels.com/photos/3738085/pexels-photo-3738085.jpeg")
+  background: url("../img/Home1.webp")
     center/cover no-repeat;
 }
 
