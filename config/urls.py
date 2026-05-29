@@ -53,4 +53,13 @@ urlpatterns = [
 
     # ---- Sitemap ----
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
+
+    # ---- Яндекс верификация ----
+    path(
+        "yandex_6a15f4e5e5c926a0.html",
+        TemplateView.as_view(
+            template_name="yandex_6a15f4e5e5c926a0.html",
+            content_type="text/html"
+        ),
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
