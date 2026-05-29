@@ -1,4 +1,6 @@
 {% extends "main/base.html" %}
+{% block canonical_path %}/about/{% endblock %}
+{% block og_url_path %}/about/{% endblock %}
 {% load static %}
 {% block title %}О нас · Ulagasheff{% endblock %}
 
@@ -12,234 +14,236 @@
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Главная",
-    "item": "https://ulagasheff.ru/"
-  },{
-    "@type": "ListItem",
-    "position": 2,
-    "name": "О нас",
-    "item": "https://ulagasheff.ru/about/"
-  }]
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Главная","item":"https://ulagasheff.ru/"},{"@type":"ListItem","position":2,"name":"О нас","item":"https://ulagasheff.ru/about/"}]
 }
 </script>
 {% endblock %}
 
 {% block content %}
-<section class="container py-5 mt-5 reveal">
 
-  <!-- HERO -->
-  <div class="row mb-5">
-    <div class="col-lg-7">
-      <h1 class="mb-3 fw-bold">Швейное производство Ulagasheff</h1>
-      <p class="lead text-white-75">
-        Премиальное швейное производство полного цикла на юго-востоке Москвы
-        (район Перово). Мы сопровождаем заказ от идеи и макета до готовой
-        партии, маркировки и упаковки.
-      </p>
-      <p class="text-white-50 mb-0">
-        Работаем с брендами одежды, селлерами маркетплейсов и компаниями,
-        которым важны стабильное качество и соблюдение сроков.
-      </p>
-    </div>
-    <div class="col-lg-5 mt-4 mt-lg-0">
-      <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
-        <div>
-          <p class="text-uppercase small text-white-50 mb-2">Локация</p>
-          <p class="mb-3">
-            Бизнес-центр в Перово, производственная площадь
-            <strong>200 м²</strong> с удобным подъездом для разгрузки сырья
-            и отгрузки готовой продукции.
-          </p>
-        </div>
-        <div class="d-flex gap-3 flex-wrap">
-          <div>
-            <div class="small text-white-50 text-uppercase">Производительность</div>
-            <div class="fw-semibold fs-5">до 10 000 ед./мес</div>
-          </div>
-          <div>
-            <div class="small text-white-50 text-uppercase">Минимальный тираж</div>
-            <div class="fw-semibold fs-5">от 150 ед. на модель</div>
-          </div>
-        </div>
+<!-- ========================
+     HERO
+======================== -->
+<section class="about-hero reveal">
+  <div class="container">
+    <div class="about-hero-inner">
+      <div class="about-hero-text">
+        <p class="about-eyebrow">О производстве</p>
+        <h1 class="about-hero-title">Швейное<br>производство<br>Ulagasheff</h1>
       </div>
-    </div>
-  </div>
-
-  <!-- ЧТО МЫ ДЕЛАЕМ -->
-  <div class="row g-4 mb-5">
-    <div class="col-lg-6">
-      <div class="glass-card p-4 h-100">
-        <h2 class="h4 fw-bold mb-3">Специализация</h2>
-        <p class="mb-3 text-white-75">
-          Мы работаем с трикотажными полотнами и тканями, производим
-          <strong>женскую и мужскую одежду</strong> как на давальческом сырье,
-          так и полностью «под ключ».
+      <div class="about-hero-desc">
+        <p class="about-hero-lead">
+          Премиальное производство полного цикла на юго-востоке Москвы.
+          Сопровождаем заказ от идеи и лекала до готовой партии с маркировкой и упаковкой.
         </p>
-        <ul class="text-white-50 mb-0">
-          <li>базовый и премиальный трикотаж;</li>
-          <li>футболки, лонги, свитшоты, зип-свитшоты;</li>
-          <li>мантии, туники и капсульные коллекции для брендов;</li>
-          <li>мерч для компаний, артистов и селлеров маркетплейсов.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-lg-6">
-      <div class="glass-card p-4 h-100">
-        <h2 class="h4 fw-bold mb-3">Вышивка и брендинг</h2>
-        <p class="mb-3 text-white-75">
-          Отдельное направление — промышленная машинная вышивка и оформление
-          готовых изделий.
-        </p>
-        <ul class="text-white-50 mb-0">
-          <li>вышивка логотипов на одежде;</li>
-          <li>изготовление нашивок и шевронов;</li>
-          <li>брендирование капсул под маркетплейсы;</li>
-          <li>полный цикл: от макета до готового мерча.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- ПРЕИМУЩЕСТВА -->
-  <div class="mb-5">
-    <h2 class="h4 fw-bold mb-3">Наше производство и команда</h2>
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="glass-card p-4 h-100">
-          <h3 class="h5 fw-semibold mb-2">Качество middle up</h3>
-          <p class="text-white-50 mb-0">
-            Держим планку качества на уровне middle–up при высокой
-            производительности. Каждое изделие проходит ручной контроль
-            качества перед упаковкой.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="glass-card p-4 h-100">
-          <h3 class="h5 fw-semibold mb-2">Профессиональная команда</h3>
-          <p class="text-white-50 mb-0">
-            В штате: закройщик, технолог, ОТК, ВТО, опытные швеи,
-            упаковщики и маркировщики. Команда с большим стажем работы
-            в швейной промышленности.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="glass-card p-4 h-100">
-          <h3 class="h5 fw-semibold mb-2">Скорость и сервис</h3>
-          <p class="text-white-50 mb-0">
-            Быстрое включение в проект, прозрачные сроки и гибкие условия
-            сотрудничества. Работаем с удобной для вас формой оплаты,
-            держим связь на каждом этапе.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ОБОРУДОВАНИЕ -->
-  <div class="mb-5">
-    <h2 class="h4 fw-bold mb-3">Оборудование</h2>
-    <div class="glass-card p-4">
-      <p class="text-white-50">
-        Производство оснащено современным промышленным оборудованием
-        для изделий первого и второго слоя:
-      </p>
-      <div class="row">
-        <div class="col-md-6">
-          <ul class="text-white-50 mb-2">
-            <li>прямострочные автоматы;</li>
-            <li>оверлоки и распошивальные машины с разными платформами;</li>
-            <li>поясная машина;</li>
-            <li>петельная и пуговичная машины;</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <ul class="text-white-50 mb-0">
-            <li>автомат для установки кнопок и люверсов;</li>
-            <li>прессы для сублимации и дублирования;</li>
-            <li>промышленная вышивальная машина;</li>
-            <li>раскройный стол длиной 7 метров.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ПРАЙС -->
-  <div class="mb-5">
-    <h2 class="h4 fw-bold mb-3">Базовый прайс</h2>
-    <p class="text-white-50 mb-3">
-      Стоимость указана за единицу изделия. Диапазон отражает два формата работы:
-      <strong>давальческая схема / под ключ</strong>.
-      Конечная цена зависит от сложности модели, материала и объёма тиража.
-    </p>
-
-    <div class="glass-card p-0 overflow-hidden">
-      <table class="table mb-0 align-middle text-white-75">
-        <thead class="table-dark">
-          <tr>
-            <th class="px-4">Модель</th>
-            <th>Давальческая схема</th>
-            <th>Под ключ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="px-4">Футболки</td>
-            <td>от 250 ₽</td>
-            <td>от 550 ₽</td>
-          </tr>
-          <tr>
-            <td class="px-4">Лонги</td>
-            <td>от 300 ₽</td>
-            <td>от 600 ₽</td>
-          </tr>
-          <tr>
-            <td class="px-4">Свитшоты</td>
-            <td>от 450 ₽</td>
-            <td>от 650 ₽</td>
-          </tr>
-          <tr>
-            <td class="px-4">Зип-свитшоты</td>
-            <td>от 550 ₽</td>
-            <td>от 850 ₽</td>
-          </tr>
-          <tr>
-            <td class="px-4">Мантии</td>
-            <td>от 600 ₽</td>
-            <td>от 900 ₽</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-section mt-5">
-    <div class="cta-inner d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
-      <div>
-        <span class="cta-badge mb-2 d-inline-block">Сотрудничество</span>
-        <h2 class="h4 fw-bold mb-2">Готовы обсудить ваш проект</h2>
-        <p class="text-white-50 mb-0">
-          Пришлите техническое задание или референсы — предложим варианты по
-          конструкции, материалам и бюджету и рассчитаем срок производства.
+        <p class="about-hero-sub">
+          Работаем с брендами одежды, селлерами маркетплейсов и компаниями,
+          которым важны стабильное качество и соблюдение сроков.
         </p>
       </div>
-      <div class="text-md-end">
-        <a href="/contacts/" class="btn btn-light px-4 py-2 fw-semibold"
-           style="border-radius: 14px; letter-spacing: 0.08em; text-transform: uppercase;">
-          Связаться с нами
-        </a>
+    </div>
+
+    <!-- Статы -->
+    <div class="about-stats">
+      <div class="about-stat">
+        <span class="about-stat-num">200</span>
+        <span class="about-stat-unit">м²</span>
+        <span class="about-stat-label">площадь цеха в Перово</span>
+      </div>
+      <div class="about-stat-divider"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">10 000</span>
+        <span class="about-stat-unit">ед.</span>
+        <span class="about-stat-label">производительность в месяц</span>
+      </div>
+      <div class="about-stat-divider"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">150</span>
+        <span class="about-stat-unit">+</span>
+        <span class="about-stat-label">минимальный тираж на модель</span>
+      </div>
+      <div class="about-stat-divider"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">100%</span>
+        <span class="about-stat-unit"></span>
+        <span class="about-stat-label">ручной контроль качества</span>
       </div>
     </div>
   </div>
-
 </section>
+
+
+<!-- ========================
+     СПЕЦИАЛИЗАЦИЯ
+======================== -->
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Что мы делаем</p>
+    <h2 class="about-section-title">Специализация</h2>
+  </div>
+
+  <div class="about-spec-grid">
+    <div class="about-spec-card">
+      <div class="about-spec-icon">🧵</div>
+      <h3>Трикотаж и текстиль</h3>
+      <p>Базовый и премиальный трикотаж, футболки, лонги, свитшоты, зип-свитшоты — от лекала до отгрузки.</p>
+    </div>
+    <div class="about-spec-card">
+      <div class="about-spec-icon">🧥</div>
+      <h3>Мантии и капсулы</h3>
+      <p>Мантии, туники и капсульные коллекции для fashion-брендов и шоу-румов. Работаем по референсам и ТЗ.</p>
+    </div>
+    <div class="about-spec-card">
+      <div class="about-spec-icon">🏷️</div>
+      <h3>Мерч и брендинг</h3>
+      <p>Корпоративный мерч, коллекции для маркетплейсов, вышивка логотипов, нашивки и шевроны.</p>
+    </div>
+    <div class="about-spec-card">
+      <div class="about-spec-icon">🪡</div>
+      <h3>Вышивка</h3>
+      <p>Промышленная машинная вышивка: логотипы на одежде, нашивки, шевроны. Полный цикл от макета.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     ОБОРУДОВАНИЕ
+======================== -->
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Производство</p>
+    <h2 class="about-section-title">Оборудование</h2>
+  </div>
+
+  <div class="about-equip-grid">
+    <div class="about-equip-item">
+      <span class="about-equip-num">01</span>
+      <span class="about-equip-name">Прямострочные автоматы</span>
+    </div>
+    <div class="about-equip-item">
+      <span class="about-equip-num">02</span>
+      <span class="about-equip-name">Оверлоки и распошивальные машины</span>
+    </div>
+    <div class="about-equip-item">
+      <span class="about-equip-num">03</span>
+      <span class="about-equip-name">Поясная машина</span>
+    </div>
+    <div class="about-equip-item">
+      <span class="about-equip-num">04</span>
+      <span class="about-equip-name">Петельная и пуговичная машины</span>
+    </div>
+    <div class="about-equip-item">
+      <span class="about-equip-num">05</span>
+      <span class="about-equip-name">Автомат для кнопок и люверсов</span>
+    </div>
+    <div class="about-equip-item">
+      <span class="about-equip-num">06</span>
+      <span class="about-equip-name">Прессы для сублимации и дублирования</span>
+    </div>
+    <div class="about-equip-item">
+      <span class="about-equip-num">07</span>
+      <span class="about-equip-name">Промышленная вышивальная машина</span>
+    </div>
+    <div class="about-equip-item">
+      <span class="about-equip-num">08</span>
+      <span class="about-equip-name">Раскройный стол 7 метров</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     ПРАЙС
+======================== -->
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Стоимость</p>
+    <h2 class="about-section-title">Базовый прайс</h2>
+    <p class="about-section-sub">
+      Цена за единицу изделия. Диапазон: <strong>давальческая схема / под ключ</strong>.<br>
+      Финальная стоимость зависит от сложности, материала и объёма тиража.
+    </p>
+  </div>
+
+  <div class="about-price-table">
+    <div class="about-price-head">
+      <span>Модель</span>
+      <span>Давальческая</span>
+      <span>Под ключ</span>
+    </div>
+    <div class="about-price-row">
+      <span class="about-price-name">Футболки</span>
+      <span class="about-price-val">от 250 ₽</span>
+      <span class="about-price-val about-price-full">от 550 ₽</span>
+    </div>
+    <div class="about-price-row">
+      <span class="about-price-name">Лонги</span>
+      <span class="about-price-val">от 300 ₽</span>
+      <span class="about-price-val about-price-full">от 600 ₽</span>
+    </div>
+    <div class="about-price-row">
+      <span class="about-price-name">Свитшоты</span>
+      <span class="about-price-val">от 450 ₽</span>
+      <span class="about-price-val about-price-full">от 650 ₽</span>
+    </div>
+    <div class="about-price-row">
+      <span class="about-price-name">Зип-свитшоты</span>
+      <span class="about-price-val">от 550 ₽</span>
+      <span class="about-price-val about-price-full">от 850 ₽</span>
+    </div>
+    <div class="about-price-row">
+      <span class="about-price-name">Мантии</span>
+      <span class="about-price-val">от 600 ₽</span>
+      <span class="about-price-val about-price-full">от 900 ₽</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     ПРЕИМУЩЕСТВА
+======================== -->
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Почему мы</p>
+    <h2 class="about-section-title">Команда и подход</h2>
+  </div>
+
+  <div class="about-adv-grid">
+    <div class="about-adv-item">
+      <h3>Качество middle up</h3>
+      <p>Каждое изделие проходит ручной контроль качества перед упаковкой. Держим планку при высокой производительности.</p>
+    </div>
+    <div class="about-adv-item">
+      <h3>Профессиональная команда</h3>
+      <p>В штате: закройщик, технолог, ОТК, ВТО, опытные швеи, упаковщики и маркировщики с большим стажем.</p>
+    </div>
+    <div class="about-adv-item">
+      <h3>Скорость и сервис</h3>
+      <p>Быстрое включение в проект, прозрачные сроки, гибкие условия. Держим связь на каждом этапе.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     CTA
+======================== -->
+<section class="container about-section mb-5 reveal">
+  <div class="cta-section">
+    <div class="cta-inner text-center">
+      <span class="cta-badge mb-3 d-inline-block">Сотрудничество</span>
+      <h2 class="fw-bold mb-3">Готовы обсудить ваш проект</h2>
+      <p class="text-white-50 mb-4" style="max-width:500px;margin-left:auto;margin-right:auto;">
+        Пришлите ТЗ или референсы — предложим варианты по конструкции,
+        материалам и бюджету, рассчитаем срок производства.
+      </p>
+      <a href="{% url 'contacts' %}" class="btn btn-light px-5 py-3 fw-semibold">
+        Связаться с нами
+      </a>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

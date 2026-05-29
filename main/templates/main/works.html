@@ -1,8 +1,9 @@
 {% extends "main/base.html" %}
+{% block canonical_path %}/works/{% endblock %}
+{% block og_url_path %}/works/{% endblock %}
 {% load static %}
 
 {% block title %}Наши работы · Ulagasheff{% endblock %}
-
 
 {% block meta_description %}
 <meta name="description"
@@ -33,245 +34,236 @@
 
 
 {% block content %}
-<section class="container py-5 mt-5 reveal works-page">
 
-  <!-- ХЕДЕР РАЗДЕЛА -->
-  <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-3">
-    <div>
-      <h1 class="mb-2 fw-bold">Наши работы</h1>
-      <p class="text-white-50 mb-0">
-        Часть изделий, созданных на производстве Ulagasheff: от единичных капсул до серийных партий
-        для брендов и селлеров маркетплейсов.
-      </p>
-    </div>
-    <div class="text-md-end small text-white-50">
-      Партии от 150 единиц · Производительность до 10&nbsp;000 изделий в месяц
-    </div>
-  </div>
-
-  <!-- НЕБОЛЬШАЯ ПОДПИСКА-ЛЕГЕНДА -->
-  <div class="catalog-hint mb-4">
-    <span class="catalog-hint-title">Что вы видите в каталоге:</span>
-    <span class="catalog-hint-pill">капсулы для брендов</span>
-    <span class="catalog-hint-pill">коллекции для маркетплейсов</span>
-    <span class="catalog-hint-pill">лимитированные дропы</span>
-  </div>
-
-  <!-- СЕТКА РАБОТ -->
-  <div class="row g-4 works-grid">
-
-    <!-- Карточка 1 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/2-4.webp' %}" alt="Мантия 1">
+<!-- ==============================
+     ХЕДЕР СТРАНИЦЫ
+============================== -->
+<section class="works-hero reveal">
+  <div class="container">
+    <div class="works-hero-inner">
+      <div class="works-hero-left">
+        <p class="works-hero-eyebrow">Портфолио</p>
+        <h1 class="works-hero-title">Наши работы</h1>
+        <p class="works-hero-sub">
+          От единичных капсул до серийных партий для брендов<br class="d-none d-md-block">
+          и селлеров маркетплейсов.
+        </p>
+      </div>
+      <div class="works-hero-stats">
+        <div class="works-stat">
+          <span class="works-stat-num">150+</span>
+          <span class="works-stat-label">единиц минимум</span>
         </div>
-        <div class="mt-2">
-          <div class="work-caption">Туника удлинённая</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">Outerwear</span>
-            <span class="work-note small text-white-50">партия для бренда</span>
+        <div class="works-stat">
+          <span class="works-stat-num">10 000</span>
+          <span class="works-stat-label">изделий в месяц</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Фильтр-бейджи -->
+    <div class="works-filter-row">
+      <span class="works-filter-label">В каталоге:</span>
+      <span class="works-filter-pill">Капсулы для брендов</span>
+      <span class="works-filter-pill">Маркетплейсы</span>
+      <span class="works-filter-pill">Лимитированные дропы</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================
+     СЕТКА РАБОТ
+============================== -->
+<section class="container works-catalog reveal">
+  <div class="works-masonry">
+
+    <!-- Карточка 1 — широкая -->
+    <div class="wc wc--wide">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/2-4.webp' %}" alt="Туника удлинённая">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--outerwear">Outerwear</span>
+            <h3 class="wc-title">Туника удлинённая</h3>
+            <p class="wc-note">Партия для бренда</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Карточка 2 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/2-5.webp' %}" alt="Мантия 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Мантия с замком</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">Outerwear</span>
-            <span class="work-note small text-white-50">партия для бренда</span>
+    <div class="wc">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/2-5.webp' %}" alt="Мантия с замком">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--outerwear">Outerwear</span>
+            <h3 class="wc-title">Мантия с замком</h3>
+            <p class="wc-note">Партия для бренда</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Карточка 3 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/OMSA_ 668.jpg' %}" alt="Туника 1">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Брюки Вельвет</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">Drop</span>
-            <span class="work-note small text-white-50">лимитированный релиз</span>
+    <div class="wc">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/omsa-668.webp' %}" alt="Брюки Вельвет">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--drop">Drop</span>
+            <h3 class="wc-title">Брюки Вельвет</h3>
+            <p class="wc-note">Лимитированный релиз</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Карточка 4 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/OMSA_ 710.jpg' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Свитшот Вельвет</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">Drop</span>
-            <span class="work-note small text-white-50">лимитированный релиз</span>
+    <!-- Карточка 4 — широкая -->
+    <div class="wc wc--wide">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/omsa-710.webp' %}" alt="Свитшот Вельвет">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--drop">Drop</span>
+            <h3 class="wc-title">Свитшот Вельвет</h3>
+            <p class="wc-note">Лимитированный релиз</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Карточка 5 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/WhatsApp-Image-2022-03-09-at-17.57.27.jpeg' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Комбинезон</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">Drop</span>
-            <span class="work-note small text-white-50">лимитированный релиз</span>
+    <div class="wc">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/kombinezon-1.webp' %}" alt="Комбинезон">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--drop">Drop</span>
+            <h3 class="wc-title">Комбинезон</h3>
+            <p class="wc-note">Лимитированный релиз</p>
           </div>
         </div>
       </div>
     </div>
-
 
     <!-- Карточка 6 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/WhatsApp-Image-2022-03-09-at-17.57.14.jpeg' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Комбинезон</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">Drop</span>
-            <span class="work-note small text-white-50">лимитированный релиз</span>
+    <div class="wc">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/kombinezon-2.webp' %}" alt="Комбинезон">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--drop">Drop</span>
+            <h3 class="wc-title">Комбинезон</h3>
+            <p class="wc-note">Лимитированный релиз</p>
           </div>
         </div>
       </div>
     </div>
 
-
-    <!-- Карточка 7 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/image-03-04-24-03-08-15.jpeg' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Зип-Свитшот</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">Drop</span>
-            <span class="work-note small text-white-50">коллекция для маркетплейсов</span>
+    <!-- Карточка 7 — широкая -->
+    <div class="wc wc--wide">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/zip-svitshot.webp' %}" alt="Зип-Свитшот">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--capsule">Capsule</span>
+            <h3 class="wc-title">Зип-Свитшот</h3>
+            <p class="wc-note">Коллекция для маркетплейсов</p>
           </div>
         </div>
       </div>
     </div>
-
-
 
     <!-- Карточка 8 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/9.111274.jpg' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Сетка</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">OUTERWEAR</span>
-            <span class="work-note small text-white-50">партия для бренда</span>
+    <div class="wc">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/setka.webp' %}" alt="Сетка">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--outerwear">Outerwear</span>
+            <h3 class="wc-title">Сетка</h3>
+            <p class="wc-note">Партия для бренда</p>
           </div>
         </div>
       </div>
     </div>
-
 
     <!-- Карточка 9 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/1-7.webp' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Дизайнерский костюм</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">capsule</span>
-            <span class="work-note small text-white-50">Капсула для шоу-рума</span>
+    <div class="wc">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/1-7.webp' %}" alt="Дизайнерский костюм">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--capsule">Capsule</span>
+            <h3 class="wc-title">Дизайнерский костюм</h3>
+            <p class="wc-note">Капсула для шоу-рума</p>
           </div>
         </div>
       </div>
     </div>
 
-
-
-
-    <!-- Карточка 10 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/1-8.webp' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Лонгслив</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">drop</span>
-            <span class="work-note small text-white-50">коллекция для маркетплейсов</span>
+    <!-- Карточка 10 — широкая -->
+    <div class="wc wc--wide">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/1-8.webp' %}" alt="Лонгслив">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--drop">Drop</span>
+            <h3 class="wc-title">Лонгслив</h3>
+            <p class="wc-note">Коллекция для маркетплейсов</p>
           </div>
         </div>
       </div>
     </div>
-
-
-
-
 
     <!-- Карточка 11 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/1-9.webp' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Шорты</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">OUTERWEAR</span>
-            <span class="work-note small text-white-50">партия для бренда</span>
+    <div class="wc">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/1-9.webp' %}" alt="Шорты">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--outerwear">Outerwear</span>
+            <h3 class="wc-title">Шорты</h3>
+            <p class="wc-note">Партия для бренда</p>
           </div>
         </div>
       </div>
     </div>
-
-
 
     <!-- Карточка 12 -->
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="glass-card p-2 h-100 work-card">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/2-6.webp' %}" alt="Туника 2">
-        </div>
-        <div class="mt-2">
-          <div class="work-caption">Мантия с принтом</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <span class="work-tag">OUTERWEAR</span>
-            <span class="work-note small text-white-50">партия для бренда</span>
+    <div class="wc">
+      <div class="wc-inner">
+        <img loading="lazy" src="{% static 'main/img/2-6.webp' %}" alt="Мантия с принтом">
+        <div class="wc-overlay">
+          <div class="wc-info">
+            <span class="wc-tag wc-tag--outerwear">Outerwear</span>
+            <h3 class="wc-title">Мантия с принтом</h3>
+            <p class="wc-note">Партия для бренда</p>
           </div>
         </div>
       </div>
     </div>
-
-
-
-
-    <!-- дальше просто дублируешь по тому же шаблону под любые вещи:
-         брюки, худи, сет, капсула, мерч и т.д. -->
 
   </div>
 </section>
+
+
+<!-- ==============================
+     CTA
+============================== -->
+<section class="container py-5 mb-5 reveal">
+  <div class="cta-section cta-inner text-center">
+    <p class="cta-badge mb-3">Готовы к производству?</p>
+    <h2 class="fw-bold mb-3">Обсудим ваш проект</h2>
+    <p class="text-white-50 mb-4" style="max-width:480px;margin:0 auto 1.5rem;">
+      Оставьте заявку — обсудим объёмы, сроки и материалы. Работаем с брендами и маркетплейсами по всей России.
+    </p>
+    <a href="{% url 'contacts' %}" class="btn btn-light px-5 py-3 fw-semibold">
+      Оставить заявку
+    </a>
+  </div>
+</section>
+
 {% endblock %}

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
+from django.views.decorators.cache import cache_page
+from django.http import JsonResponse
 
 from .models import Lead
 from .forms import ContactForm
@@ -59,23 +61,29 @@ def contact_submit(request):
             except Exception:
                 pass
 
-    messages.success(request, "Запрос отправлен. Мы свяжемся с вами.")
-    return redirect(request.META.get("HTTP_REFERER", "contacts"))
+    # AJAX-запрос — вернём JSON
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+        return JsonResponse({"ok": True, "message": "Запрос отправлен. Мы свяжемся с вами в течение рабочего дня."})
+
+    # Обычный POST (страница контактов без JS) — редирект с параметром, без Django messages
+    return redirect("/contacts/?sent=1")
 
 
 def home(request):
-    # больше не обрабатываем POST, только рендер
     return render(request, "main/home.html")
 
 
+@cache_page(60 * 60)
 def services(request):
     return render(request, "main/services.html")
 
 
+@cache_page(60 * 60)
 def works(request):
     return render(request, "main/works.html")
 
 
+@cache_page(60 * 60)
 def about(request):
     return render(request, "main/about.html")
 
@@ -84,5 +92,14 @@ def contacts(request):
     return render(request, "main/contacts.html")
 
 
+@cache_page(60 * 60 * 24)
 def privacy(request):
     return render(request, "main/privacy.html")
+
+
+def page_not_found(request, exception):
+    return render(request, "404.html", status=404)
+
+
+def server_error(request):
+    return render(request, "500.html", status=500)

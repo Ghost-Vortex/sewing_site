@@ -1,8 +1,9 @@
 {% extends "main/base.html" %}
+{% block canonical_path %}/services/{% endblock %}
+{% block og_url_path %}/services/{% endblock %}
 {% load static %}
 
 {% block title %}Услуги · Ulagasheff{% endblock %}
-
 
 {% block meta_description %}
 <meta name="description"
@@ -16,186 +17,251 @@
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Главная",
-    "item": "https://ulagasheff.ru/"
-  },{
-    "@type": "ListItem",
-    "position": 2,
-    "name": "Услуги",
-    "item": "https://ulagasheff.ru/services/"
-  }]
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Главная","item":"https://ulagasheff.ru/"},{"@type":"ListItem","position":2,"name":"Услуги","item":"https://ulagasheff.ru/services/"}]
 }
 </script>
 {% endblock %}
 
 
 {% block content %}
-<section class="container py-5 mt-5 services-page">
 
-  <!-- HERO БЛОК -->
-  <div class="row mb-5">
-    <div class="col-lg-7">
-      <h1 class="mb-3 fw-bold">Услуги производства Ulagasheff</h1>
-      <p class="lead text-white-75">
-        Производим одежду оптом под бренды и селлеров: от базовых футболок
-        до капсульных коллекций и премиальных мантий.
-      </p>
-      <p class="text-white-50 mb-0">
-        Работаем по давальческой схеме и «под ключ»: подбираем материалы,
-        отшиваем, упаковываем и готовим партию к отгрузке на маркетплейсы
-        или в розницу.
-      </p>
+<!-- ========================
+     HERO
+======================== -->
+<section class="about-hero reveal">
+  <div class="container">
+    <div class="about-hero-inner">
+      <div class="about-hero-text">
+        <p class="about-eyebrow">Что мы делаем</p>
+        <h1 class="about-hero-title">Услуги<br>производства</h1>
+      </div>
+      <div class="about-hero-desc">
+        <p class="about-hero-lead">
+          Производим одежду оптом под бренды и селлеров — от базовых футболок
+          до капсульных коллекций и премиальных мантий.
+        </p>
+        <p class="about-hero-sub">
+          Работаем по давальческой схеме и «под ключ»: подбираем материалы,
+          отшиваем, упаковываем и готовим партию к отгрузке.
+        </p>
+        <div class="svc-format-pills">
+          <span class="svc-pill svc-pill--a">Давальческое сырьё</span>
+          <span class="svc-pill svc-pill--b">Под ключ</span>
+          <span class="svc-pill svc-pill--c">Малые партии</span>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-5 mt-4 mt-lg-0">
-      <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
-        <div class="mb-3">
-          <div class="small text-white-50 text-uppercase mb-1">Форматы работы</div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="service-chip">Давальческое сырьё</span>
-            <span class="service-chip">Под ключ</span>
-            <span class="service-chip">Малые партии</span>
-          </div>
-        </div>
-        <div class="d-flex gap-4 flex-wrap">
-          <div>
-            <div class="small text-white-50 text-uppercase mb-1">Минимальный тираж</div>
-            <div class="fw-semibold">от 150 ед. на модель</div>
-          </div>
-          <div>
-            <div class="small text-white-50 text-uppercase mb-1">Производительность</div>
-            <div class="fw-semibold">до 10 000 ед./мес</div>
-          </div>
-        </div>
+
+    <div class="about-stats">
+      <div class="about-stat">
+        <span class="about-stat-num">150</span>
+        <span class="about-stat-unit">+</span>
+        <span class="about-stat-label">минимальный тираж</span>
+      </div>
+      <div class="about-stat-divider"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">10 000</span>
+        <span class="about-stat-unit">ед.</span>
+        <span class="about-stat-label">производительность / месяц</span>
+      </div>
+      <div class="about-stat-divider"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">10–25</span>
+        <span class="about-stat-unit">дн.</span>
+        <span class="about-stat-label">среднее время производства</span>
+      </div>
+      <div class="about-stat-divider"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">200</span>
+        <span class="about-stat-unit">м²</span>
+        <span class="about-stat-label">площадь цеха</span>
       </div>
     </div>
   </div>
-
-  <!-- БЛОК 1: ПРОИЗВОДСТВО ОДЕЖДЫ -->
-  <div class="mb-4 d-flex justify-content-between align-items-center gap-3">
-    <h2 class="h4 fw-bold mb-0">Производство одежды</h2>
-    <span class="text-white-50 small">
-      Полный цикл: от лекал и раскроя до упаковки и маркировки
-    </span>
-  </div>
-
-  <div class="row g-4 service-grid mb-5">
-    <div class="col-md-4">
-      <div class="service-card glass-card p-4 reveal">
-        <div class="service-icon">🧥</div>
-        <h3 class="h5 mb-2">Мантии и капсулы</h3>
-        <p class="text-white-50 mb-3">
-          Пошив авторских мантий и капсульных коллекций в премиальном сегменте:
-          чёткая посадка, плотные ткани, аккуратные швы.
-        </p>
-        <div class="service-meta text-white-50 small">
-          Тираж: от 150 ед. · Формат: давальческое сырьё / под ключ
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="service-card glass-card p-4 reveal">
-        <div class="service-icon">👕</div>
-        <h3 class="h5 mb-2">Базовый трикотаж</h3>
-        <p class="text-white-50 mb-3">
-          Футболки, лонги, свитшоты, худи и зип-свитшоты для брендов и
-          маркетплейсов. Стабильные лекала и повторяемость партий.
-        </p>
-        <div class="service-meta text-white-50 small">
-          Тираж: от 200–300 ед. · Серийный пошив
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="service-card glass-card p-4 reveal">
-        <div class="service-icon">📐</div>
-        <h3 class="h5 mb-2">Разработка моделей</h3>
-        <p class="text-white-50 mb-3">
-          Построение лекал, подбор материалов, градация размеров, тестовый образец
-          и подготовка изделия к запуску в тираж.
-        </p>
-        <div class="service-meta text-white-50 small">
-          Формат: под ключ · Включая сопровождение технолога
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- БЛОК 2: БРЕНДИНГ И ОФОРМЛЕНИЕ -->
-  <div class="mb-4 d-flex justify-content-between align-items-center gap-3">
-    <h2 class="h4 fw-bold mb-0">Брендинг и оформление</h2>
-    <span class="text-white-50 small">
-      Всё, что делает изделие готовым к продаже под вашим брендом
-    </span>
-  </div>
-
-  <div class="row g-4 service-grid mb-5">
-    <div class="col-md-4">
-      <div class="service-card glass-card p-4 reveal">
-        <div class="service-icon">🧵</div>
-        <h3 class="h5 mb-2">Машинная вышивка</h3>
-        <p class="text-white-50 mb-3">
-          Промышленная вышивка логотипов, надписей и графики на изделиях.
-          Возможны шевроны и отдельные нашивки.
-        </p>
-        <div class="service-meta text-white-50 small">
-          Формат: на наших изделиях или на давальческих
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="service-card glass-card p-4 reveal">
-        <div class="service-icon">🏷️</div>
-        <h3 class="h5 mb-2">Маркировка и упаковка</h3>
-        <p class="text-white-50 mb-3">
-          Нашивки, бирки, ярлыки, упаковка по ТЗ, подготовка к отгрузке
-          на маркетплейсы и в розничные магазины.
-        </p>
-        <div class="service-meta text-white-50 small">
-          Упаковка поштучно или партиями · маркировка по требованиям клиента
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="service-card glass-card p-4 reveal">
-        <div class="service-icon">🤝</div>
-        <h3 class="h5 mb-2">Производство для брендов</h3>
-        <p class="text-white-50 mb-3">
-          Сопровождаем бренды и селлеров: помогаем с запуском линейки,
-          тиражированием успешных моделей и масштабированием объёмов.
-        </p>
-        <div class="service-meta text-white-50 small">
-          Долгосрочное сотрудничество · персональный менеджер
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-section mt-4">
-    <div class="cta-inner d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
-      <div>
-        <span class="cta-badge mb-2 d-inline-block">Запрос проекта</span>
-        <h2 class="h4 fw-bold mb-2">Хотите рассчитать заказ?</h2>
-        <p class="text-white-50 mb-0">
-          Пришлите техническое задание, фото или референсы — подготовим
-          предварительный расчёт, подскажем по материалам и срокам производства.
-        </p>
-      </div>
-      <div class="text-md-end">
-        <a href="/contacts/" class="btn btn-light px-4 py-2 fw-semibold"
-           style="border-radius: 14px; letter-spacing: 0.08em; text-transform: uppercase;">
-          Оставить запрос
-        </a>
-      </div>
-    </div>
-  </div>
-
 </section>
+
+
+<!-- ========================
+     ПРОИЗВОДСТВО ОДЕЖДЫ
+======================== -->
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Раздел 01</p>
+    <h2 class="about-section-title">Производство одежды</h2>
+    <p class="about-section-sub">Полный цикл: от лекал и раскроя до упаковки и маркировки.</p>
+  </div>
+
+  <div class="svc-grid">
+
+    <div class="svc-card svc-card--featured">
+      <div class="svc-num">01</div>
+      <div class="svc-icon-wrap">🧥</div>
+      <h3 class="svc-title">Мантии и капсулы</h3>
+      <p class="svc-desc">
+        Пошив авторских мантий и капсульных коллекций в премиальном сегменте:
+        чёткая посадка, плотные ткани, аккуратные швы.
+      </p>
+      <div class="svc-tags">
+        <span class="svc-tag svc-tag--keys">под ключ</span>
+        <span class="svc-tag svc-tag--raw">давальческое</span>
+      </div>
+      <div class="svc-meta">от 150 ед. на модель</div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <div class="svc-icon-wrap">👕</div>
+      <h3 class="svc-title">Базовый трикотаж</h3>
+      <p class="svc-desc">
+        Футболки, лонги, свитшоты, худи и зип-свитшоты для брендов
+        и маркетплейсов. Стабильные лекала и повторяемость партий.
+      </p>
+      <div class="svc-tags">
+        <span class="svc-tag svc-tag--series">серийный пошив</span>
+      </div>
+      <div class="svc-meta">от 200–300 ед.</div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <div class="svc-icon-wrap">📐</div>
+      <h3 class="svc-title">Разработка моделей</h3>
+      <p class="svc-desc">
+        Построение лекал, подбор материалов, градация размеров,
+        тестовый образец и подготовка изделия к запуску в тираж.
+      </p>
+      <div class="svc-tags">
+        <span class="svc-tag svc-tag--keys">под ключ</span>
+      </div>
+      <div class="svc-meta">технолог сопровождает весь процесс</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================
+     БРЕНДИНГ И ОФОРМЛЕНИЕ
+======================== -->
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Раздел 02</p>
+    <h2 class="about-section-title">Брендинг и оформление</h2>
+    <p class="about-section-sub">Всё, что делает изделие готовым к продаже под вашим брендом.</p>
+  </div>
+
+  <div class="svc-list">
+
+    <div class="svc-list-item">
+      <div class="svc-list-left">
+        <span class="svc-list-num">04</span>
+        <span class="svc-list-icon">🧵</span>
+        <h3 class="svc-list-title">Машинная вышивка</h3>
+      </div>
+      <p class="svc-list-desc">
+        Промышленная вышивка логотипов, надписей и графики на изделиях.
+        Шевроны и отдельные нашивки. На наших изделиях или давальческих.
+      </p>
+      <div class="svc-tags">
+        <span class="svc-tag svc-tag--raw">давальческое</span>
+        <span class="svc-tag svc-tag--keys">наши изделия</span>
+      </div>
+    </div>
+
+    <div class="svc-list-item">
+      <div class="svc-list-left">
+        <span class="svc-list-num">05</span>
+        <span class="svc-list-icon">🏷️</span>
+        <h3 class="svc-list-title">Маркировка и упаковка</h3>
+      </div>
+      <p class="svc-list-desc">
+        Нашивки, бирки, ярлыки, упаковка по ТЗ. Подготовка к отгрузке
+        на маркетплейсы (Wildberries, Ozon) и в розничные магазины.
+      </p>
+      <div class="svc-tags">
+        <span class="svc-tag svc-tag--series">поштучно и партиями</span>
+      </div>
+    </div>
+
+    <div class="svc-list-item">
+      <div class="svc-list-left">
+        <span class="svc-list-num">06</span>
+        <span class="svc-list-icon">🤝</span>
+        <h3 class="svc-list-title">Производство для брендов</h3>
+      </div>
+      <p class="svc-list-desc">
+        Долгосрочное сотрудничество с брендами и селлерами: запуск линейки,
+        тиражирование успешных моделей, масштабирование объёмов.
+      </p>
+      <div class="svc-tags">
+        <span class="svc-tag svc-tag--keys">персональный менеджер</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================
+     КАК МЫ РАБОТАЕМ (процесс)
+======================== -->
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Процесс</p>
+    <h2 class="about-section-title">От заявки до отгрузки</h2>
+  </div>
+
+  <div class="svc-process">
+    <div class="svc-process-item">
+      <span class="svc-process-step">1</span>
+      <span class="svc-process-name">Заявка и ТЗ</span>
+    </div>
+    <div class="svc-process-arrow">→</div>
+    <div class="svc-process-item">
+      <span class="svc-process-step">2</span>
+      <span class="svc-process-name">Согласование и расчёт</span>
+    </div>
+    <div class="svc-process-arrow">→</div>
+    <div class="svc-process-item">
+      <span class="svc-process-step">3</span>
+      <span class="svc-process-name">Лекала и образец</span>
+    </div>
+    <div class="svc-process-arrow">→</div>
+    <div class="svc-process-item">
+      <span class="svc-process-step">4</span>
+      <span class="svc-process-name">Производство</span>
+    </div>
+    <div class="svc-process-arrow">→</div>
+    <div class="svc-process-item">
+      <span class="svc-process-step">5</span>
+      <span class="svc-process-name">Контроль и упаковка</span>
+    </div>
+    <div class="svc-process-arrow">→</div>
+    <div class="svc-process-item">
+      <span class="svc-process-step">6</span>
+      <span class="svc-process-name">Отгрузка</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     CTA
+======================== -->
+<section class="container about-section mb-5 reveal">
+  <div class="cta-section">
+    <div class="cta-inner text-center">
+      <span class="cta-badge mb-3 d-inline-block">Запрос проекта</span>
+      <h2 class="fw-bold mb-3">Хотите рассчитать заказ?</h2>
+      <p class="text-white-50 mb-4" style="max-width:500px;margin:0 auto 1.5rem;">
+        Пришлите ТЗ, фото или референсы — подготовим предварительный расчёт,
+        подскажем по материалам и срокам производства.
+      </p>
+      <a href="{% url 'contacts' %}" class="btn btn-light px-5 py-3 fw-semibold">
+        Оставить запрос
+      </a>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

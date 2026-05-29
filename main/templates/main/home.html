@@ -1,4 +1,6 @@
 {% extends "main/base.html" %}
+{% block canonical_path %}/{% endblock %}
+{% block og_url_path %}/{% endblock %}
 {% load static %}
 
 {% block title %}Швейное производство · Ulagasheff{% endblock %}
@@ -10,509 +12,526 @@
 {% block og_title %}Швейное производство в Москве · Ulagasheff{% endblock %}
 {% block og_description %}Пошив одежды для брендов, маркетплейсов и компаний. До 10 000 изделий в месяц, современный парк оборудования, район Перово.{% endblock %}
 
+{% block yandex_maps %}
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer></script>
+{% endblock %}
+
 {% block breadcrumbs_ld %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Главная",
-    "item": "https://ulagasheff.ru/"
-  }]
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Главная","item":"https://ulagasheff.ru/"}]
 }
 </script>
 {% endblock %}
 
 
 {% block content %}
-<section class="hero">
-  <div class="container hero-content">
-    <div class="row g-5 align-items-center">
 
-      <!-- ТЕКСТ -->
-      <div class="col-lg-6 order-1 order-lg-1">
-        <h1 class="display-4 fw-bold fade-up">
-          Швейное производство<br>премиум-уровня
-        </h1>
-        <p class="lead mt-3 fade-up-delayed">
-          Мелкосерийное и Крупносерийное производство трикотажных и текстильных изделий, контроль качества на каждом этапе.
-        </p>
-        <p class="mt-3 fade-up-delayed">
-          Пошив мантии, туник, капсульных коллекций и корпоративной формы под ваш бренд.
-        </p>
-      </div>
+<!-- ========================
+     HERO
+======================== -->
+<section class="home-hero-fullbleed">
 
-      <!-- ФОРМА -->
-      <div class="col-lg-5 ms-auto order-2 order-lg-2">
-        <div class="glass-card hero-form-card p-4 p-md-5">
-          <h2 class="h4 mb-3">Оставить заявку</h2>
-          <form method="post" action="{% url 'contact_submit' %}" novalidate>
-            {% csrf_token %}
-            <div class="mb-3">
-              <label class="form-label">Имя</label>
-              <input type="text" name="name" class="form-control"
-                     placeholder="Как к вам обращаться?" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Телеграм / телефон</label>
-              <input type="text" name="contact" class="form-control"
-                     placeholder="@username или номер" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Что хотите шить?</label>
-              <textarea name="message" class="form-control" rows="3"
-                        placeholder="Мантии, капсула для бренда, мерч для компании..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-light w-100">
-              Отправить заявку
-            </button>
-          </form>
-        </div>
-      </div>
-
-    </div>
+  <!-- Фон: фото одежды с Ken Burns зумом -->
+  <div class="home-hero-bg">
+    <img src="{% static 'main/img/Home1.webp' %}" alt="" aria-hidden="true" class="home-hero-bg-img">
+    <div class="home-hero-bg-overlay"></div>
   </div>
-</section>
 
+  <div class="container home-hero-content">
 
-
-
-
-<section class="container py-5 reveal">
-  <h2 class="fw-bold mb-4 text-center">Почему выбирают Ulagasheff</h2>
-
-  <div class="row g-4">
-
-    <div class="col-md-4">
-      <div class="glass-card p-4 h-100">
-        <h4 class="fw-semibold mb-2">Ручная обработка</h4>
-        <p class="mb-0">
-          Каждое изделие шьётся вручную, с вниманием к мелочам и качеству.
-        </p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="glass-card p-4 h-100">
-        <h4 class="fw-semibold mb-2">Премиальные ткани</h4>
-        <p class="mb-0">
-          Отбираем дорогие плотные ткани с хорошей посадкой и долговечностью.
-        </p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="glass-card p-4 h-100">
-        <h4 class="fw-semibold mb-2">Малые партии</h4>
-        <p class="mb-0">
-          Работаем с брендами, делаем капсулы и индивидуальные заказы.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-<section class="container py-5 reveal">
-  <div class="row align-items-center g-4">
-
-    <div class="col-lg-6">
-      <img
-        src="{% static 'main/img/4732DEA9-3FED-43E4-A02C-76B87B10D083.PNG' %}"
-        class="img-fluid rounded glass-card"
-        alt="Производство"
-      >
-    </div>
-
-    <div class="col-lg-6">
-      <h2 class="fw-bold mb-3">Про наше производство</h2>
-      <p class="mb-3">
-        Мы создаём изделия, которые отличаются плотностью, посадкой
-        и мощным визуальным стилем. Все модели проходят несколько этапов примерки.
+    <div class="home-hero-text">
+      <p class="about-eyebrow home-hero-line home-hero-line--1">Швейное производство · Москва, Перово</p>
+      <h1 class="home-hero-title">
+        <span class="home-hero-line home-hero-line--2">Производство</span>
+        <span class="home-hero-line home-hero-line--3">одежды</span>
+        <span class="home-hero-line home-hero-line--4">премиум-класса</span>
+      </h1>
+      <p class="home-hero-sub home-hero-line home-hero-line--5">
+        От лекала до готовой партии. Мантии, туники, капсулы
+        и мерч для брендов и маркетплейсов.
       </p>
-      <p class="mb-3">
-        Используем только качественные ткани, аккуратную подгонку,
-        контроль швов и продуманные лекала.
-      </p>
-      <p class="mb-3">
-        Любая мантия, туника или капсула создаётся индивидуально под заказчика.
-      </p>
-      <a href="/about/" class="btn btn-light">Подробнее о нас</a>
+      <div class="home-hero-chips home-hero-line home-hero-line--6">
+        <span>от 150 ед.</span>
+        <span>до 10 000 / мес</span>
+        <span>под ключ</span>
+        <span>давальческое</span>
+      </div>
+      <div class="home-hero-cta home-hero-line home-hero-line--7">
+        <a href="{% url 'contacts' %}" class="btn btn-light px-5 py-3 fw-semibold">
+          Рассчитать заказ
+        </a>
+        <a href="{% url 'works' %}" class="home-hero-link">
+          Смотреть работы →
+        </a>
+      </div>
+    </div>
+
+    <!-- Карточки поверх фото (нижний правый угол) -->
+    <div class="home-hero-badges">
+      <div class="home-hero-badge-card home-hero-line home-hero-line--6">
+        <span class="home-hero-badge-num">10 000</span>
+        <span class="home-hero-badge-label">изделий / месяц</span>
+      </div>
+      <div class="home-hero-badge-card home-hero-line home-hero-line--7">
+        <span class="home-hero-badge-num">150+</span>
+        <span class="home-hero-badge-label">мин. тираж</span>
+      </div>
+      <div class="home-hero-badge-card home-hero-line home-hero-line--7">
+        <span class="home-hero-badge-num">200 м²</span>
+        <span class="home-hero-badge-label">площадь цеха</span>
+      </div>
     </div>
 
   </div>
 </section>
 
-
-
-<section class="container py-5 reveal production-photos">
-  <h2 class="fw-bold mb-4">Наше производство</h2>
-  <p class="text-white-50 mb-4">
-    Швейный цех Ulagasheff: от рабочего стола до готового изделия.
-  </p>
-
-  <div class="row g-4">
-    <!-- 1 ряд: цех + раскрой -->
-    <div class="col-md-6">
-      <div class="production-photo-card">
-        <div class="production-photo-inner">
-          <img src="{% static 'main/img/BD66F323-B01E-4AAD-982F-E57423C04865.PNG' %}" alt="Общий вид цеха">
-        </div>
-        <div class="production-photo-label">
-          Общий вид цеха
-        </div>
-      </div>
+<!-- ========================
+     HERO ФОРМА
+======================== -->
+<section class="container home-hero-form-section reveal">
+  <div class="home-hero-form-wrap">
+    <div class="home-hero-form-text">
+      <p class="about-eyebrow">Запрос на производство</p>
+      <h2 class="home-hero-form-title">Расскажите<br>о проекте</h2>
+      <p class="home-hero-form-hint">
+        Пришлите ТЗ или пару строк — предложим варианты и рассчитаем стоимость.
+      </p>
     </div>
-
-    <div class="col-md-6">
-      <div class="production-photo-card">
-        <div class="production-photo-inner">
-          <img src="{% static 'main/img/37018D5F-668C-47BC-B631-6463D64D731A.PNG' %}" alt="Рабочий стол и раскрой">
+    <form method="post" action="{% url 'contact_submit' %}" novalidate class="contacts-form home-hero-form-fields" data-ajax-form>
+      {% csrf_token %}
+      <div class="contacts-form-row">
+        <div class="contacts-field">
+          <label class="contacts-field-label">Имя</label>
+          <input type="text" name="name" class="contacts-input"
+                 placeholder="Как к вам обращаться?" required>
         </div>
-        <div class="production-photo-label">
-          Рабочий стол и раскрой
+        <div class="contacts-field">
+          <label class="contacts-field-label">Телеграм / телефон</label>
+          <input type="text" name="contact" class="contacts-input"
+                 placeholder="@username или номер" required>
         </div>
       </div>
+      <div class="contacts-field">
+        <label class="contacts-field-label">Что хотите шить?</label>
+        <textarea name="message" class="contacts-input contacts-textarea" rows="2"
+                  placeholder="Мантии, капсула для бренда, мерч..."></textarea>
+      </div>
+      <div class="contacts-field consent-field">
+        <label class="consent-label">
+          <input type="checkbox" name="consent" required class="consent-checkbox">
+          <span>Я согласен(на) на <a href="{% url 'privacy' %}" class="consent-link" target="_blank">обработку персональных данных</a></span>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-light px-5 py-3 fw-semibold">
+        Отправить заявку
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<!-- ========================
+     СТАТЫ
+======================== -->
+<section class="container home-stats-bar reveal">
+  <div class="about-stats">
+    <div class="about-stat">
+      <span class="about-stat-num">200</span>
+      <span class="about-stat-unit">м²</span>
+      <span class="about-stat-label">площадь цеха</span>
     </div>
-
-    <!-- 2 ряд: машинки слева, ткань / фурнитура справа -->
-    <div class="col-md-6">
-      <div class="production-photo-card">
-        <div class="production-photo-inner">
-          <img src="{% static 'main/img/034C2F7B-E04D-428C-B459-32273DAF404C.PNG' %}" alt="Складская зона">
-        </div>
-        <div class="production-photo-label">
-          Складская зона
-        </div>
-      </div>
+    <div class="about-stat-divider"></div>
+    <div class="about-stat">
+      <span class="about-stat-num">10 000</span>
+      <span class="about-stat-unit">ед.</span>
+      <span class="about-stat-label">производительность / мес</span>
     </div>
-
-    <div class="col-md-6">
-      <div class="production-photo-card">
-        <div class="production-photo-inner">
-          <img src="{% static 'main/img/7422C4D5-2606-4A34-937E-BE236F8C279D.PNG' %}" alt="Ткани и заготовки">
-        </div>
-        <div class="production-photo-label">
-          Ткани и заготовки
-        </div>
-      </div>
+    <div class="about-stat-divider"></div>
+    <div class="about-stat">
+      <span class="about-stat-num">150</span>
+      <span class="about-stat-unit">+</span>
+      <span class="about-stat-label">минимальный тираж</span>
+    </div>
+    <div class="about-stat-divider"></div>
+    <div class="about-stat">
+      <span class="about-stat-num">10–25</span>
+      <span class="about-stat-unit">дн.</span>
+      <span class="about-stat-label">время производства</span>
     </div>
   </div>
 </section>
 
 
+<!-- ========================
+     ПОЧЕМУ МЫ
+======================== -->
+<section class="container home-section reveal">
+  <div class="home-section-header">
+    <p class="about-eyebrow">Преимущества</p>
+    <h2 class="home-section-title">Почему выбирают Ulagasheff</h2>
+  </div>
+
+  <div class="home-features">
+    <div class="home-feature">
+      <div class="home-feature-icon">✦</div>
+      <h3>Ручная обработка</h3>
+      <p>Каждое изделие шьётся с вниманием к деталям. Ручной контроль качества перед упаковкой.</p>
+    </div>
+    <div class="home-feature">
+      <div class="home-feature-icon">◈</div>
+      <h3>Премиальные ткани</h3>
+      <p>Плотный трикотаж, футер, рибана — отбираем материалы с хорошей посадкой и долговечностью.</p>
+    </div>
+    <div class="home-feature">
+      <div class="home-feature-icon">⬡</div>
+      <h3>Полный цикл</h3>
+      <p>Лекала, раскрой, пошив, вышивка, упаковка и маркировка — всё в одном месте.</p>
+    </div>
+    <div class="home-feature">
+      <div class="home-feature-icon">◎</div>
+      <h3>Гибкие форматы</h3>
+      <p>Давальческое сырьё или под ключ. Работаем с малыми партиями и серийным производством.</p>
+    </div>
+  </div>
+</section>
 
 
-<section class="container py-5 reveal">
-  <h2 class="fw-bold mb-4">Наши работы</h2>
-  <p class="text-white-50 mb-4">
-    Несколько изделий из нашего каталога. Всё — ручная работа и точная посадка.
-  </p>
+<!-- ========================
+     О ПРОИЗВОДСТВЕ
+======================== -->
+<section class="container home-section reveal">
+  <div class="home-about-split">
+    <div class="home-about-img">
+      <img src="{% static 'main/img/prod-about.webp' %}" alt="Производство Ulagasheff" loading="lazy">
+    </div>
+    <div class="home-about-text">
+      <p class="about-eyebrow">Про нас</p>
+      <h2 class="home-section-title">Швейный цех<br>в Перово</h2>
+      <p>
+        Производство площадью 200 м² с современным парком оборудования.
+        Создаём изделия, которые отличаются плотностью, посадкой и визуальным стилем.
+      </p>
+      <p>
+        Все модели проходят несколько этапов примерки. Качественные ткани,
+        аккуратная подгонка, контроль швов и продуманные лекала.
+      </p>
+      <a href="{% url 'about' %}" class="btn btn-outline-light mt-2">Подробнее о нас →</a>
+    </div>
+  </div>
+</section>
 
-  <div class="row g-4 works-preview-grid">
-    <!-- Работа №1 -->
-    <div class="col-6 col-md-3">
-      <div class="work-card glass-card p-2 h-100">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/2-4.webp' %}" alt="мантия1">
-        </div>
+
+<!-- ========================
+     ФОТО ПРОИЗВОДСТВА
+======================== -->
+<section class="container home-section reveal production-photos">
+  <div class="home-section-header">
+    <p class="about-eyebrow">Изнутри</p>
+    <h2 class="home-section-title">Наш цех</h2>
+  </div>
+
+  <div class="home-prod-grid">
+    <div class="production-photo-card home-prod-wide">
+      <div class="production-photo-inner">
+        <img src="{% static 'main/img/prod-ceh.webp' %}" alt="Общий вид цеха" loading="lazy">
+      </div>
+      <div class="production-photo-label">Общий вид цеха</div>
+    </div>
+    <div class="production-photo-card">
+      <div class="production-photo-inner">
+        <img src="{% static 'main/img/prod-raskroy.webp' %}" alt="Раскрой" loading="lazy">
+      </div>
+      <div class="production-photo-label">Раскрой</div>
+    </div>
+    <div class="production-photo-card">
+      <div class="production-photo-inner">
+        <img src="{% static 'main/img/prod-skladskaya.webp' %}" alt="Склад" loading="lazy">
+      </div>
+      <div class="production-photo-label">Склад</div>
+    </div>
+    <div class="production-photo-card">
+      <div class="production-photo-inner">
+        <img src="{% static 'main/img/prod-tkani.webp' %}" alt="Ткани" loading="lazy">
+      </div>
+      <div class="production-photo-label">Ткани</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     РАБОТЫ ПРЕВЬЮ
+======================== -->
+<section class="container home-section reveal">
+  <div class="home-section-header">
+    <p class="about-eyebrow">Портфолио</p>
+    <h2 class="home-section-title">Наши работы</h2>
+  </div>
+
+  <div class="home-works-grid">
+
+    <!-- Featured tall card — spans 2 rows -->
+    <div class="wc home-works-featured">
+      <div class="wc-inner">
+        <img src="{% static 'main/img/2-4.webp' %}" alt="Туника удлинённая" loading="lazy">
+        <div class="wc-overlay"><div class="wc-info">
+          <span class="wc-tag wc-tag--outerwear">Outerwear</span>
+          <h3 class="wc-title">Туника удлинённая</h3>
+        </div></div>
       </div>
     </div>
 
-    <!-- Работа №2 -->
-    <div class="col-6 col-md-3">
-      <div class="work-card glass-card p-2 h-100">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/2-5.webp' %}" alt="мантия2">
-        </div>
+    <!-- Top right 1 -->
+    <div class="wc">
+      <div class="wc-inner">
+        <img src="{% static 'main/img/omsa-668.webp' %}" alt="Брюки Вельвет" loading="lazy">
+        <div class="wc-overlay"><div class="wc-info">
+          <span class="wc-tag wc-tag--drop">Drop</span>
+          <h3 class="wc-title">Брюки Вельвет</h3>
+        </div></div>
       </div>
     </div>
 
-    <!-- Работа №3 -->
-    <div class="col-6 col-md-3">
-      <div class="work-card glass-card p-2 h-100">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/OMSA_ 668.jpg' %}" alt="туника1">
-        </div>
+    <!-- Top right 2 -->
+    <div class="wc">
+      <div class="wc-inner">
+        <img src="{% static 'main/img/omsa-710.webp' %}" alt="Свитшот" loading="lazy">
+        <div class="wc-overlay"><div class="wc-info">
+          <span class="wc-tag wc-tag--drop">Drop</span>
+          <h3 class="wc-title">Свитшот Вельвет</h3>
+        </div></div>
       </div>
     </div>
 
-    <!-- Работа №4 -->
-    <div class="col-6 col-md-3">
-      <div class="work-card glass-card p-2 h-100">
-        <div class="work-image-wrap">
-          <img src="{% static 'main/img/OMSA_ 710.jpg' %}" alt="туника2">
-        </div>
+    <!-- Bottom right — spans 2 columns -->
+    <div class="wc home-works-bottom">
+      <div class="wc-inner">
+        <img src="{% static 'main/img/kombinezon-1.webp' %}" alt="Комбинезон" loading="lazy" style="object-position: center 55%;">
+        <div class="wc-overlay"><div class="wc-info">
+          <span class="wc-tag wc-tag--capsule">Capsule</span>
+          <h3 class="wc-title">Комбинезон</h3>
+        </div></div>
       </div>
     </div>
+
   </div>
 
   <div class="text-center mt-4">
-    <a href="/works/" class="btn btn-outline-light px-4 py-2 fw-semibold"
-       style="border-radius: 14px; letter-spacing: 0.7px;">
+    <a href="{% url 'works' %}" class="btn btn-outline-light px-5 py-3 fw-semibold">
       Смотреть все работы →
     </a>
   </div>
 </section>
 
 
-
-<section class="container py-5 reveal">
-  <h2 class="fw-bold mb-4 text-center">Мы находимся здесь</h2>
-
-  <div class="glass-card p-2 rounded-4 overflow-hidden">
-    <div id="yandex-map" style="width: 100%; height: 400px; border-radius: 20px;"></div>
+<!-- ========================
+     КАК МЫ РАБОТАЕМ
+======================== -->
+<section class="container home-section reveal steps-section">
+  <div class="home-section-header">
+    <p class="about-eyebrow">Процесс</p>
+    <h2 class="home-section-title">Как мы работаем</h2>
   </div>
-</section>
-
-
-<section class="container py-5 reveal">
-  <h2 class="fw-bold mb-4 text-center">Частые вопросы</h2>
-
-  <p class="text-center text-white-50 mb-4">
-    Ответы на вопросы, которые задают бренды перед производством.
-  </p>
-
-  <div class="accordion premium-accordion glass-card p-4 rounded-4" id="faq">
-
-    <!-- 1 -->
-    <div class="accordion-item bg-transparent">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-transparent text-white"
-                type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-          Какие ткани вы используете и можно ли свои?
-        </button>
-      </h2>
-      <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faq">
-        <div class="accordion-body text-white-50">
-          Мы работаем с плотным трикотажем, футером, рибаной, а также тканями
-          заказчика. Помогаем подобрать материалы, если нужно — под ваш бренд.
-        </div>
-      </div>
-    </div>
-
-    <!-- 2 -->
-    <div class="accordion-item bg-transparent">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-transparent text-white"
-                type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-          Какой минимальный тираж?
-        </button>
-      </h2>
-      <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq">
-        <div class="accordion-body text-white-50">
-          На базовые изделия минимальный заказ — от <strong>150 единиц</strong> на модель.
-          Для капсул и кастома возможны меньшие партии по договорённости.
-        </div>
-      </div>
-    </div>
-
-    <!-- 3 -->
-    <div class="accordion-item bg-transparent">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-transparent text-white"
-                type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-          Делаете ли вы полный цикл под ключ?
-        </button>
-      </h2>
-      <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq">
-        <div class="accordion-body text-white-50">
-          Да. Лекала, закупка сырья, пошив, вышивка, упаковка, маркировка — всё
-          в одном месте. Вы получаете готовое изделие, готовое к продаже.
-        </div>
-      </div>
-    </div>
-
-    <!-- 4 -->
-    <div class="accordion-item bg-transparent">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-transparent text-white"
-                type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-          Можно ли шить по фото или референсу?
-        </button>
-      </h2>
-      <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faq">
-        <div class="accordion-body text-white-50">
-          Конечно. Создадим точный образ, отработаем посадку и технологию,
-          сохранив стиль, который вам нужен.
-        </div>
-      </div>
-    </div>
-
-    <!-- 5 -->
-    <div class="accordion-item bg-transparent">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-transparent text-white"
-                type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-          Сколько времени занимает производство?
-        </button>
-      </h2>
-      <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faq">
-        <div class="accordion-body text-white-50">
-          В среднем от 10 до 25 рабочих дней, в зависимости от сложности модели
-          и объёма заказа.
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-<section class="container py-5 reveal steps-section">
-  <h2 class="fw-bold mb-3 text-center">Как мы работаем?</h2>
-  <p class="text-center text-white-50 mb-4">
-    Делаем заказ понятным: от первой заявки до готовых изделий и отгрузки.
-  </p>
 
   <div class="row g-4 work-steps-grid">
-    <div class="col-md-4">
-      <div class="step-card reveal">
-        <h4 class="fw-semibold mb-2">Подача заявки</h4>
-        <p class="mb-0 text-white-50">
-          Клиент заполняет форму или связывается с нами, описывает идею, объём и сроки.
-        </p>
-        <div class="step-number">1</div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="step-card reveal">
-        <h4 class="fw-semibold mb-2">Согласование</h4>
-        <p class="mb-0 text-white-50">
-          Обсуждаем материалы, посадку, бюджет, сроки. Фиксируем ТЗ и цену.
-        </p>
-        <div class="step-number">2</div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="step-card reveal">
-        <h4 class="fw-semibold mb-2">Подготовка макета</h4>
-        <p class="mb-0 text-white-50">
-          Готовим лекала, макет изделия и бренд-элементы (бирки, вышивки, принты).
-        </p>
-        <div class="step-number">3</div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="step-card reveal">
-        <h4 class="fw-semibold mb-2">Производство</h4>
-        <p class="mb-0 text-white-50">
-          Запускаем партию в цеху: раскрой, пошив, влажно-тепловая обработка.
-        </p>
-        <div class="step-number">4</div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="step-card reveal">
-        <h4 class="fw-semibold mb-2">Контроль качества</h4>
-        <p class="mb-0 text-white-50">
-          Проверяем швы, посадку, оттенок ткани и упаковку каждого изделия.
-        </p>
-        <div class="step-number">5</div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="step-card reveal">
-        <h4 class="fw-semibold mb-2">Доставка</h4>
-        <p class="mb-0 text-white-50">
-          Аккуратно упаковываем и отправляем партию удобным способом для клиента.
-        </p>
-        <div class="step-number">6</div>
-      </div>
-    </div>
+    <div class="col-md-4"><div class="step-card reveal">
+      <h4 class="fw-semibold mb-2">Подача заявки</h4>
+      <p class="mb-0 text-white-50">Описываете идею, объём и сроки — через форму или в Telegram.</p>
+      <div class="step-number">1</div>
+    </div></div>
+    <div class="col-md-4"><div class="step-card reveal">
+      <h4 class="fw-semibold mb-2">Согласование</h4>
+      <p class="mb-0 text-white-50">Обсуждаем материалы, посадку, бюджет. Фиксируем ТЗ и цену.</p>
+      <div class="step-number">2</div>
+    </div></div>
+    <div class="col-md-4"><div class="step-card reveal">
+      <h4 class="fw-semibold mb-2">Подготовка макета</h4>
+      <p class="mb-0 text-white-50">Готовим лекала, образец и бренд-элементы (бирки, вышивки).</p>
+      <div class="step-number">3</div>
+    </div></div>
+    <div class="col-md-4"><div class="step-card reveal">
+      <h4 class="fw-semibold mb-2">Производство</h4>
+      <p class="mb-0 text-white-50">Раскрой, пошив, влажно-тепловая обработка в нашем цеху.</p>
+      <div class="step-number">4</div>
+    </div></div>
+    <div class="col-md-4"><div class="step-card reveal">
+      <h4 class="fw-semibold mb-2">Контроль качества</h4>
+      <p class="mb-0 text-white-50">Проверяем швы, посадку, оттенок и упаковку каждого изделия.</p>
+      <div class="step-number">5</div>
+    </div></div>
+    <div class="col-md-4"><div class="step-card reveal">
+      <h4 class="fw-semibold mb-2">Доставка</h4>
+      <p class="mb-0 text-white-50">Упаковываем и отправляем партию удобным для вас способом.</p>
+      <div class="step-number">6</div>
+    </div></div>
   </div>
 </section>
 
 
-
-<section class="container py-5 reveal">
-  <h2 class="fw-bold mb-4 text-center">Отзывы</h2>
+<!-- ========================
+     ОТЗЫВЫ
+======================== -->
+<section class="container home-section reveal">
+  <div class="home-section-header">
+    <p class="about-eyebrow">Отзывы</p>
+    <h2 class="home-section-title">Что говорят клиенты</h2>
+  </div>
 
   <div class="row g-4">
     <div class="col-md-4">
       <div class="review-card p-4 h-100">
-        <div class="review-stars mb-2">★★★★★</div>
-        <p class="mb-3">
-          «моя любимая швейная компания👏👍 почтоянно только у них заказываю одежду🥰😍 отшивают все прекрасно, без браков. советую!»
-        </p>
-        <div class="text-white-50 small">— Отзыв с Яндекс.Карт</div>
+        <div class="review-stars mb-3">★★★★★</div>
+        <p class="mb-3">«Моя любимая швейная компания 👏 постоянно только у них заказываю одежду. Отшивают всё прекрасно, без браков. Советую!»</p>
+        <div class="text-white-50 small">— Яндекс.Карты</div>
       </div>
     </div>
-
     <div class="col-md-4">
       <div class="review-card p-4 h-100">
-        <div class="review-stars mb-2">★★★★★</div>
-        <p class="mb-3">
-          «Отшили партию одежды для продажи на маркетах, хороший цех, быстро работают, качество middle up.»
-        </p>
-        <div class="text-white-50 small">— Отзыв с Яндекс.Карт</div>
+        <div class="review-stars mb-3">★★★★★</div>
+        <p class="mb-3">«Отшили партию одежды для продажи на маркетплейсах. Хороший цех, быстро работают, качество middle up.»</p>
+        <div class="text-white-50 small">— Яндекс.Карты</div>
       </div>
     </div>
-
     <div class="col-md-4">
       <div class="review-card p-4 h-100">
-        <div class="review-stars mb-2">★★★★★</div>
-        <p class="mb-3">
-          «Все сделали в срок, качественно!»
-        </p>
-        <div class="text-white-50 small">— Отзыв с Яндекс.Карт</div>
+        <div class="review-stars mb-3">★★★★★</div>
+        <p class="mb-3">«Всё сделали в срок, качественно! Рекомендую как надёжного партнёра для производства одежды.»</p>
+        <div class="text-white-50 small">— Яндекс.Карты</div>
       </div>
     </div>
   </div>
 </section>
-<section class="container py-5 reveal">
-  <h2 class="fw-bold mb-4 text-center">Наши клиенты</h2>
-  <p class="text-center text-white-50 mb-4">
-    Работаем с брендами, креаторами и небольшими производствами.
-  </p>
 
-  <div class="clients-row">
-    <div class="client-logo">Streetwear Brand</div>
-    <div class="client-logo">Music Label</div>
-    <div class="client-logo">Bar / Lounge</div>
-    <div class="client-logo">Clothing Studio</div>
+
+<!-- ========================
+     FAQ
+======================== -->
+<section class="container home-section reveal faq-section">
+  <div class="home-section-header text-center" style="align-items:center;">
+    <p class="faq-eyebrow">FAQ</p>
+    <h2 class="home-section-title">Частые вопросы</h2>
+    <p class="text-white-50 mt-1" style="font-size:0.9rem;">Ответы на вопросы, которые задают бренды перед производством.</p>
+  </div>
+
+  <div class="faq-list" style="max-width:780px;margin:0 auto;">
+    <div class="faq-item">
+      <button class="faq-trigger" aria-expanded="false">
+        <span>Какие ткани вы используете и можно ли свои?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body"><p>Работаем с плотным трикотажем, футером, рибаной, а также тканями заказчика. Помогаем подобрать материалы под ваш бренд.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" aria-expanded="false">
+        <span>Какой минимальный тираж?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body"><p>На базовые изделия — от <strong>150 единиц</strong> на модель. Для капсул и кастома возможны меньшие партии по договорённости.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" aria-expanded="false">
+        <span>Делаете ли вы полный цикл под ключ?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body"><p>Да. Лекала, закупка сырья, пошив, вышивка, упаковка, маркировка — всё в одном месте. Получаете изделие, готовое к продаже.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" aria-expanded="false">
+        <span>Можно ли шить по фото или референсу?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body"><p>Конечно. Создадим точный образ, отработаем посадку и технологию, сохранив нужный стиль.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" aria-expanded="false">
+        <span>Сколько времени занимает производство?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body"><p>В среднем от 10 до 25 рабочих дней, в зависимости от сложности модели и объёма заказа.</p></div>
+    </div>
   </div>
 </section>
 
 
+<!-- ========================
+     КАРТА
+======================== -->
+<section class="container home-section reveal">
+  <div class="home-map-wrap">
+
+    <!-- Информация -->
+    <div class="home-map-info">
+      <p class="about-eyebrow">Расположение</p>
+      <h2 class="home-section-title">Мы здесь</h2>
+
+      <div class="home-map-address">
+        <div class="home-map-row">
+          <span class="home-map-icon">📍</span>
+          <div>
+            <div class="home-map-label">Адрес</div>
+            <div class="home-map-val">Москва, Кусковская ул., 20А</div>
+          </div>
+        </div>
+        <div class="home-map-row">
+          <span class="home-map-icon">🚇</span>
+          <div>
+            <div class="home-map-label">Метро</div>
+            <div class="home-map-val">м. Перово · м. Новогиреево</div>
+          </div>
+        </div>
+        <div class="home-map-row">
+          <span class="home-map-icon">🕐</span>
+          <div>
+            <div class="home-map-label">Режим работы</div>
+            <div class="home-map-val">Пн–Пт, 9:00–18:00</div>
+          </div>
+        </div>
+        <div class="home-map-row">
+          <span class="home-map-icon">📞</span>
+          <div>
+            <div class="home-map-label">Телефон</div>
+            <div class="home-map-val">
+              <a href="tel:+79854825071" class="home-map-link">+7 (985) 482-50-71</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://yandex.ru/maps/?pt=37.783141,55.739823&z=16&l=map" target="_blank" rel="noopener"
+         class="btn btn-outline-light mt-2">
+        Открыть на Яндекс Картах →
+      </a>
+    </div>
+
+    <!-- Карта -->
+    <div class="home-map-embed">
+      <div id="yandex-map"></div>
+    </div>
+
+  </div>
+</section>
 
 
-<section class="container py-5 reveal">
+<!-- ========================
+     CTA
+======================== -->
+<section class="container home-section mb-5 reveal">
   <div class="cta-section">
-    <div class="cta-inner">
-      <div class="cta-badge mb-3">limited production</div>
-      <h2 class="fw-bold mb-3">
-        Готовы запустить пошив<br>под ваш бренд?
-      </h2>
-      <p class="text-white-50 mb-4">
+    <div class="cta-inner text-center">
+      <div class="cta-badge mb-3">Запуск производства</div>
+      <h2 class="fw-bold mb-3">Готовы запустить пошив<br>под ваш бренд?</h2>
+      <p class="text-white-50 mb-4" style="max-width:480px;margin:0 auto 1.5rem;">
         Оставьте запрос — обсудим ткани, лекала, тираж и сроки.
-        Сделаем изделия, которые будут выделяться в любом пространстве.
+        Сделаем изделия, которые выделяются.
       </p>
-
-      <div class="d-flex flex-wrap gap-3 align-items-center">
-        <a href="/contacts/" class="btn btn-light btn-lg px-4">
-          Оставить заявку
-        </a>
-        <span class="text-white-50 small">
-          • малые партии<br>
-          • индивидуальные изделия<br>
-          • премиум-качество
-        </span>
-      </div>
+      <a href="{% url 'contacts' %}" class="btn btn-light btn-lg px-5 py-3 fw-semibold">
+        Оставить заявку
+      </a>
     </div>
   </div>
 </section>
+
 {% endblock %}

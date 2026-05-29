@@ -19,6 +19,9 @@ sitemaps = {
     'static': StaticViewSitemap
 }
 
+handler404 = 'main.views.page_not_found'
+handler500 = 'main.views.server_error'
+
 urlpatterns = [
     # ---- Основные страницы ----
     path('', home, name='home'),

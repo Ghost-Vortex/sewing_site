@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Страница не найдена · Ulagasheff{% endblock %}
+
+{% block content %}
+<section class="hero" style="min-height: 80vh; display: flex; align-items: center;">
+  <div class="container hero-content text-center">
+    <div class="reveal visible">
+      <p class="text-white-50 mb-2" style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;">Ошибка</p>
+      <h1 class="fw-bold mb-3" style="font-size: clamp(5rem, 15vw, 10rem); line-height: 1; opacity: 0.15;">404</h1>
+      <h2 class="h3 fw-semibold mb-3" style="margin-top: -1rem;">Страница не найдена</h2>
+      <p class="text-white-50 mb-5" style="max-width: 400px; margin-left: auto; margin-right: auto;">
+        Возможно, она была перемещена или удалена. Вернитесь на главную — там есть всё нужное.
+      </p>
+      <a href="{% url 'home' %}" class="btn btn-light px-5 py-3">
+        На главную
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,4 +1,6 @@
 {% extends "main/base.html" %}
+{% block canonical_path %}/contacts/{% endblock %}
+{% block og_url_path %}/contacts/{% endblock %}
 {% block title %}Контакты · Ulagasheff{% endblock %}
 
 {% block meta_description %}
@@ -11,117 +13,120 @@
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Главная",
-    "item": "https://ulagasheff.ru/"
-  },{
-    "@type": "ListItem",
-    "position": 2,
-    "name": "Контакты",
-    "item": "https://ulagasheff.ru/contacts/"
-  }]
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Главная","item":"https://ulagasheff.ru/"},{"@type":"ListItem","position":2,"name":"Контакты","item":"https://ulagasheff.ru/contacts/"}]
 }
 </script>
 {% endblock %}
 
 
 {% block content %}
-<section class="container py-5 mt-5 contact-page reveal">
+<div class="contacts-split reveal">
 
-  <div class="row g-4 align-items-stretch">
-    <!-- ЛЕВЫЙ БЛОК: КОНТАКТЫ -->
-    <div class="col-lg-5">
-      <div class="glass-card h-100 p-4 p-md-5">
-        <span class="contact-badge mb-3 d-inline-block">Контакты</span>
-        <h1 class="h3 fw-bold mb-3">Связаться с Ulagasheff</h1>
-        <p class="text-white-50 mb-4">
-          Напишите нам, если хотите рассчитать тираж, запустить капсулу
-          или обсудить производство под ваш бренд. Отвечаем лично и по делу.
-        </p>
+  <!-- ========================
+       ЛЕВАЯ ПАНЕЛЬ
+  ======================== -->
+  <div class="contacts-left">
+    <div class="contacts-left-inner">
+      <p class="about-eyebrow">Контакты</p>
+      <h1 class="contacts-title">Давайте<br>обсудим<br>проект</h1>
+      <p class="contacts-sub">
+        Напишите нам — рассчитаем тираж, подберём материалы
+        и предложим сроки. Отвечаем лично и по делу.
+      </p>
 
-        <div class="d-flex flex-column gap-3 mb-4">
-          <div>
-            <div class="small text-white-50 text-uppercase mb-1">Телеграм</div>
-            <a href="https://t.me/NatalyUmka" class="contact-link">@NatalyUmka</a>
-          </div>
-
-          <div>
-            <div class="small text-white-50 text-uppercase mb-1">Email</div>
-            <a href="mailto:aymanu@mail.ru" class="contact-link">
-              aymanu@mail.ru
-            </a>
-          </div>
-
-          <div>
-            <div class="small text-white-50 text-uppercase mb-1">Телефон</div>
-            <a>
-              +7 (985) 482-50-71
-            </a>
-          </div>
-        </div>
-
-        <div class="small text-white-50">
-          Москва, Перово · Производство 200 м² · Удобный подъезд для разгрузки
-          и отгрузки готовых партий.
-        </div>
+      <div class="contacts-links">
+        <a href="https://t.me/NatalyUmka" class="contacts-link" target="_blank" rel="noopener">
+          <span class="contacts-link-label">Телеграм</span>
+          <span class="contacts-link-val">@NatalyUmka →</span>
+        </a>
+        <a href="mailto:aymanu@mail.ru" class="contacts-link">
+          <span class="contacts-link-label">Email</span>
+          <span class="contacts-link-val">aymanu@mail.ru →</span>
+        </a>
+        <a href="tel:+79854825071" class="contacts-link">
+          <span class="contacts-link-label">Телефон</span>
+          <span class="contacts-link-val">+7 (985) 482-50-71 →</span>
+        </a>
       </div>
-    </div>
 
-    <!-- ПРАВЫЙ БЛОК: ФОРМА -->
-    <div class="col-lg-7">
-      <div class="glass-card contact-form-card p-4 p-md-5">
-        <span class="contact-badge mb-2 d-inline-block">Запрос на производство</span>
-        <h2 class="h4 fw-bold mb-2">Расскажите о вашем проекте</h2>
-        <p class="text-white-50 mb-4">
-          Пара строк о том, что вы хотите произвести, — и мы вернёмся
-          с вопросами, вариантами и предварительным расчётом.
+      <div class="contacts-location">
+        <p class="contacts-location-text">
+          Москва, район Перово<br>
+          Производство 200 м² · Удобный подъезд
         </p>
-
-        <form method="post" action="{% url 'contact_submit' %}" novalidate>
-          {% csrf_token %}
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label form-label-light">Имя</label>
-              <input type="text"
-                     name="name"
-                     class="form-control form-control-dark"
-                     placeholder="Как к вам обращаться?"
-                     required>
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label form-label-light">Контакт</label>
-              <input type="text"
-                     name="contact"
-                     class="form-control form-control-dark"
-                     placeholder="@telegram, телефон или email"
-                     required>
-            </div>
-
-            <div class="col-12">
-              <label class="form-label form-label-light">Что хотите произвести?</label>
-              <textarea name="message"
-                        class="form-control form-control-dark"
-                        rows="4"
-                        placeholder="Например: мантии 150 шт., базовые свитшоты, сроки, бюджет..."></textarea>
-            </div>
-
-            <div class="col-12 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mt-2">
-              <button class="btn btn-light px-4 py-2 fw-semibold"
-                      style="border-radius: 14px; letter-spacing: 0.08em; text-transform: uppercase;">
-                Отправить запрос
-              </button>
-              <p class="small text-white-50 mb-0">
-                Обычно отвечаем в течение рабочего дня.
-              </p>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
   </div>
 
-</section>
+  <!-- ========================
+       ПРАВАЯ ПАНЕЛЬ — ФОРМА
+  ======================== -->
+  <div class="contacts-right">
+    <div class="contacts-right-inner">
+
+      {% if request.GET.sent %}
+      <!-- SUCCESS STATE -->
+      <div class="contacts-sent-state">
+        <div class="contacts-sent-icon">✓</div>
+        <p class="about-eyebrow">Готово</p>
+        <h2 class="contacts-form-title">Заявка<br>отправлена</h2>
+        <p class="contacts-form-sub">
+          Мы получили ваш запрос и свяжемся с вами в течение рабочего дня.
+          Можете также написать напрямую в Telegram.
+        </p>
+        <a href="https://t.me/NatalyUmka" class="btn btn-light px-4 py-3 fw-semibold" target="_blank" rel="noopener">
+          Написать в Telegram →
+        </a>
+      </div>
+      {% else %}
+
+      <p class="about-eyebrow">Запрос на производство</p>
+      <h2 class="contacts-form-title">Расскажите<br>о вашем проекте</h2>
+      <p class="contacts-form-sub">
+        Пара строк о том, что вы хотите произвести — и мы вернёмся
+        с вопросами, вариантами и предварительным расчётом.
+      </p>
+
+      <form method="post" action="{% url 'contact_submit' %}" novalidate class="contacts-form">
+        {% csrf_token %}
+
+        <div class="contacts-form-row">
+          <div class="contacts-field">
+            <label class="contacts-field-label">Имя</label>
+            <input type="text" name="name" class="contacts-input"
+                   placeholder="Как к вам обращаться?" required>
+          </div>
+          <div class="contacts-field">
+            <label class="contacts-field-label">Контакт</label>
+            <input type="text" name="contact" class="contacts-input"
+                   placeholder="@telegram, телефон или email" required>
+          </div>
+        </div>
+
+        <div class="contacts-field">
+          <label class="contacts-field-label">Что хотите произвести?</label>
+          <textarea name="message" class="contacts-input contacts-textarea"
+                    placeholder="Например: мантии 150 шт., базовые свитшоты, сроки, бюджет..."></textarea>
+        </div>
+
+        <div class="consent-field">
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required class="consent-checkbox">
+            <span>Я согласен(на) на <a href="{% url 'privacy' %}" class="consent-link" target="_blank">обработку персональных данных</a></span>
+          </label>
+        </div>
+
+        <div class="contacts-form-footer">
+          <button type="submit" class="btn btn-light px-5 py-3 fw-semibold">
+            Отправить запрос
+          </button>
+          <p class="contacts-reply-hint">Обычно отвечаем в течение рабочего дня</p>
+        </div>
+      </form>
+      {% endif %}
+
+    </div>
+  </div>
+
+</div>
 {% endblock %}
