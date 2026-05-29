@@ -75,6 +75,7 @@ main {
 
 .nav-menu {
   display: flex;
+  flex-direction: row;
   list-style: none;
   align-items: center;
   gap: 2rem;
