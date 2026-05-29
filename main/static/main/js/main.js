@@ -383,7 +383,7 @@ if (window.ymaps) {
   });
 
   function showFormSuccess(form, msg) {
-    var wrap = form.closest('.home-hero-form-wrap') || form.parentElement;
+    var wrap = form.closest('.home-hero-form-wrap') || form.closest('.contacts-right-inner') || form.parentElement;
     var success = document.createElement('div');
     success.className = 'form-success-state';
     success.innerHTML =

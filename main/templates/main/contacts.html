@@ -87,7 +87,7 @@
         с вопросами, вариантами и предварительным расчётом.
       </p>
 
-      <form method="post" action="{% url 'contact_submit' %}" novalidate class="contacts-form">
+      <form method="post" action="{% url 'contact_submit' %}" novalidate class="contacts-form" data-ajax-form>
         {% csrf_token %}
 
         <div class="contacts-form-row">
