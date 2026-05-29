@@ -78,173 +78,85 @@
 <section class="container works-catalog reveal">
   <div class="works-masonry">
 
-    <!-- Карточка 1 — широкая -->
-    <div class="wc wc--wide">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/2-4.webp' %}" alt="Туника удлинённая">
-        <div class="wc-overlay">
-          <div class="wc-info">
+    {% if works %}
+      {% for work in works %}
+      <div class="wc {% if work.card_size == 'wide' %}wc--wide{% endif %}">
+        <div class="wc-inner">
+          <img loading="lazy" src="{{ work.image.url }}" alt="{{ work.title }}">
+          <div class="wc-overlay">
+            <div class="wc-info">
+              <span class="wc-tag wc-tag--{{ work.category }}">{{ work.get_category_display }}</span>
+              <h3 class="wc-title">{{ work.title }}</h3>
+              {% if work.description %}<p class="wc-note">{{ work.description }}</p>{% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    {% else %}
+      <!-- Fallback — статические карточки пока нет работ в БД -->
+      <div class="wc wc--wide">
+        <div class="wc-inner">
+          <img loading="lazy" src="{% static 'main/img/2-4.webp' %}" alt="Туника удлинённая">
+          <div class="wc-overlay"><div class="wc-info">
             <span class="wc-tag wc-tag--outerwear">Outerwear</span>
             <h3 class="wc-title">Туника удлинённая</h3>
             <p class="wc-note">Партия для бренда</p>
-          </div>
+          </div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Карточка 2 -->
-    <div class="wc">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/2-5.webp' %}" alt="Мантия с замком">
-        <div class="wc-overlay">
-          <div class="wc-info">
-            <span class="wc-tag wc-tag--outerwear">Outerwear</span>
-            <h3 class="wc-title">Мантия с замком</h3>
-            <p class="wc-note">Партия для бренда</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Карточка 3 -->
-    <div class="wc">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/omsa-668.webp' %}" alt="Брюки Вельвет">
-        <div class="wc-overlay">
-          <div class="wc-info">
+      <div class="wc">
+        <div class="wc-inner">
+          <img loading="lazy" src="{% static 'main/img/omsa-668.webp' %}" alt="Брюки Вельвет">
+          <div class="wc-overlay"><div class="wc-info">
             <span class="wc-tag wc-tag--drop">Drop</span>
             <h3 class="wc-title">Брюки Вельвет</h3>
             <p class="wc-note">Лимитированный релиз</p>
-          </div>
+          </div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Карточка 4 — широкая -->
-    <div class="wc wc--wide">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/omsa-710.webp' %}" alt="Свитшот Вельвет">
-        <div class="wc-overlay">
-          <div class="wc-info">
+      <div class="wc">
+        <div class="wc-inner">
+          <img loading="lazy" src="{% static 'main/img/omsa-710.webp' %}" alt="Свитшот Вельвет">
+          <div class="wc-overlay"><div class="wc-info">
             <span class="wc-tag wc-tag--drop">Drop</span>
             <h3 class="wc-title">Свитшот Вельвет</h3>
             <p class="wc-note">Лимитированный релиз</p>
-          </div>
+          </div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Карточка 5 -->
-    <div class="wc">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/kombinezon-1.webp' %}" alt="Комбинезон">
-        <div class="wc-overlay">
-          <div class="wc-info">
+      <div class="wc wc--wide">
+        <div class="wc-inner">
+          <img loading="lazy" src="{% static 'main/img/kombinezon-1.webp' %}" alt="Комбинезон">
+          <div class="wc-overlay"><div class="wc-info">
             <span class="wc-tag wc-tag--drop">Drop</span>
             <h3 class="wc-title">Комбинезон</h3>
             <p class="wc-note">Лимитированный релиз</p>
-          </div>
+          </div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Карточка 6 -->
-    <div class="wc">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/kombinezon-2.webp' %}" alt="Комбинезон">
-        <div class="wc-overlay">
-          <div class="wc-info">
-            <span class="wc-tag wc-tag--drop">Drop</span>
-            <h3 class="wc-title">Комбинезон</h3>
-            <p class="wc-note">Лимитированный релиз</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Карточка 7 — широкая -->
-    <div class="wc wc--wide">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/zip-svitshot.webp' %}" alt="Зип-Свитшот">
-        <div class="wc-overlay">
-          <div class="wc-info">
-            <span class="wc-tag wc-tag--capsule">Capsule</span>
-            <h3 class="wc-title">Зип-Свитшот</h3>
-            <p class="wc-note">Коллекция для маркетплейсов</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Карточка 8 -->
-    <div class="wc">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/setka.webp' %}" alt="Сетка">
-        <div class="wc-overlay">
-          <div class="wc-info">
-            <span class="wc-tag wc-tag--outerwear">Outerwear</span>
-            <h3 class="wc-title">Сетка</h3>
-            <p class="wc-note">Партия для бренда</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Карточка 9 -->
-    <div class="wc">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/1-7.webp' %}" alt="Дизайнерский костюм">
-        <div class="wc-overlay">
-          <div class="wc-info">
+      <div class="wc">
+        <div class="wc-inner">
+          <img loading="lazy" src="{% static 'main/img/1-7.webp' %}" alt="Дизайнерский костюм">
+          <div class="wc-overlay"><div class="wc-info">
             <span class="wc-tag wc-tag--capsule">Capsule</span>
             <h3 class="wc-title">Дизайнерский костюм</h3>
             <p class="wc-note">Капсула для шоу-рума</p>
-          </div>
+          </div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Карточка 10 — широкая -->
-    <div class="wc wc--wide">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/1-8.webp' %}" alt="Лонгслив">
-        <div class="wc-overlay">
-          <div class="wc-info">
-            <span class="wc-tag wc-tag--drop">Drop</span>
-            <h3 class="wc-title">Лонгслив</h3>
-            <p class="wc-note">Коллекция для маркетплейсов</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Карточка 11 -->
-    <div class="wc">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/1-9.webp' %}" alt="Шорты">
-        <div class="wc-overlay">
-          <div class="wc-info">
-            <span class="wc-tag wc-tag--outerwear">Outerwear</span>
-            <h3 class="wc-title">Шорты</h3>
-            <p class="wc-note">Партия для бренда</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Карточка 12 -->
-    <div class="wc">
-      <div class="wc-inner">
-        <img loading="lazy" src="{% static 'main/img/2-6.webp' %}" alt="Мантия с принтом">
-        <div class="wc-overlay">
-          <div class="wc-info">
+      <div class="wc">
+        <div class="wc-inner">
+          <img loading="lazy" src="{% static 'main/img/2-6.webp' %}" alt="Мантия с принтом">
+          <div class="wc-overlay"><div class="wc-info">
             <span class="wc-tag wc-tag--outerwear">Outerwear</span>
             <h3 class="wc-title">Мантия с принтом</h3>
             <p class="wc-note">Партия для бренда</p>
-          </div>
+          </div></div>
         </div>
       </div>
-    </div>
+    {% endif %}
 
   </div>
 </section>

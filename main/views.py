@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 from django.views.decorators.cache import cache_page
 from django.http import JsonResponse
 
-from .models import Lead
+from .models import Lead, Work
 from .forms import ContactForm
 from .utils import send_telegram_message
 
@@ -78,9 +78,9 @@ def services(request):
     return render(request, "main/services.html")
 
 
-@cache_page(60 * 60)
 def works(request):
-    return render(request, "main/works.html")
+    works_qs = Work.objects.filter(is_active=True)
+    return render(request, "main/works.html", {"works": works_qs})
 
 
 @cache_page(60 * 60)
