@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'main.middleware.CanonicalHostMiddleware',  # 301: www / IP -> ulagasheff.ru
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # сразу после Security
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processors.seo',
             ],
         },
     },
@@ -140,6 +142,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# Яндекс.Метрика: добавьте YANDEX_METRIKA_ID=12345678 в .env после создания счётчика
+YANDEX_METRIKA_ID = config('YANDEX_METRIKA_ID', default='')
 
 # Телега
 TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_TOKEN', default='')

@@ -3,11 +3,11 @@
 {% block og_url_path %}/{% endblock %}
 {% load static %}
 
-{% block title %}Швейное производство · Ulagasheff{% endblock %}
+{% block title %}Швейное производство в Москве — пошив одежды оптом для брендов и маркетплейсов | Ulagasheff{% endblock %}
 
 {% block meta_description %}
 <meta name="description"
-      content="Швейное производство Ulagasheff в Москве, район Перово. Пошив и вышивка оптом, от 150 единиц на модель. Мантии, туники, капсульные коллекции и мерч под ключ.">
+      content="Швейное производство полного цикла в Москве. Пошив одежды оптом от 150 единиц: футболки, свитшоты, худи, мантии, капсулы и мерч под ключ. До 10 000 изделий/мес. Рассчитаем заказ за 1 день.">
 {% endblock %}
 {% block og_title %}Швейное производство в Москве · Ulagasheff{% endblock %}
 {% block og_description %}Пошив одежды для брендов, маркетплейсов и компаний. До 10 000 изделий в месяц, современный парк оборудования, район Перово.{% endblock %}
@@ -24,6 +24,39 @@
   "itemListElement": [{"@type":"ListItem","position":1,"name":"Главная","item":"https://ulagasheff.ru/"}]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какие ткани вы используете и можно ли свои?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Работаем с плотным трикотажем, футером, рибаной, а также тканями заказчика. Помогаем подобрать материалы под ваш бренд."}
+    },
+    {
+      "@type": "Question",
+      "name": "Какой минимальный тираж?",
+      "acceptedAnswer": {"@type": "Answer", "text": "На базовые изделия — от 150 единиц на модель. Для капсул и кастома возможны меньшие партии по договорённости."}
+    },
+    {
+      "@type": "Question",
+      "name": "Делаете ли вы полный цикл под ключ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Да. Лекала, закупка сырья, пошив, вышивка, упаковка, маркировка — всё в одном месте. Получаете изделие, готовое к продаже."}
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли шить по фото или референсу?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Конечно. Создадим точный образ, отработаем посадку и технологию, сохранив нужный стиль."}
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает производство?",
+      "acceptedAnswer": {"@type": "Answer", "text": "В среднем от 10 до 25 рабочих дней, в зависимости от сложности модели и объёма заказа."}
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 
@@ -36,7 +69,7 @@
 
   <!-- Фон: фото одежды с Ken Burns зумом -->
   <div class="home-hero-bg">
-    <img src="{% static 'main/img/Home1.webp' %}" alt="" aria-hidden="true" class="home-hero-bg-img">
+    <img src="{% static 'main/img/Home1.webp' %}" alt="" aria-hidden="true" fetchpriority="high" class="home-hero-bg-img">
     <div class="home-hero-bg-overlay"></div>
   </div>
 
@@ -257,6 +290,24 @@
         <img src="{% static 'main/img/prod-tkani.webp' %}" alt="Ткани" loading="lazy">
       </div>
       <div class="production-photo-label">Ткани</div>
+    </div>
+    <div class="production-photo-card">
+      <div class="production-photo-inner">
+        <img src="{% static 'main/img/upakovka-izdeliy.webp' %}" alt="Упаковка готовых изделий с маркировкой" loading="lazy">
+      </div>
+      <div class="production-photo-label">Упаковка</div>
+    </div>
+    <div class="production-photo-card home-prod-wide">
+      <div class="production-photo-inner">
+        <img src="{% static 'main/img/tseh-jack.webp' %}" alt="Швейный цех — прямострочные машины JACK" loading="lazy">
+      </div>
+      <div class="production-photo-label">Швейные линии</div>
+    </div>
+    <div class="production-photo-card">
+      <div class="production-photo-inner">
+        <img src="{% static 'main/img/raskroyny-stol.webp' %}" alt="Раскройный стол 7 метров" loading="lazy">
+      </div>
+      <div class="production-photo-label">Раскройный стол</div>
     </div>
   </div>
 </section>

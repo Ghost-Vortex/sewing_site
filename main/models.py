@@ -40,3 +40,20 @@ class Work(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        """Сжимаем фото при сохранении: до 1920px по длинной стороне."""
+        super().save(*args, **kwargs)
+        if self.image:
+            try:
+                from PIL import Image
+                path = self.image.path
+                img = Image.open(path)
+                if max(img.size) > 1920:
+                    img.thumbnail((1920, 1920), Image.LANCZOS)
+                    save_kwargs = {"optimize": True}
+                    if (img.format or "").upper() in ("JPEG", "WEBP"):
+                        save_kwargs["quality"] = 82
+                    img.save(path, **save_kwargs)
+            except Exception:
+                pass

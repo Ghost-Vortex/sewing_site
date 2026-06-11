@@ -1,6 +1,12 @@
 User-agent: *
 Disallow: /admin/
+Disallow: /contact/submit/
+Allow: /
+
+User-agent: Yandex
+Disallow: /admin/
+Disallow: /contact/submit/
+Clean-param: sent /contacts/
 Allow: /
 
 Sitemap: https://ulagasheff.ru/sitemap.xml
-Host: ulagasheff.ru
