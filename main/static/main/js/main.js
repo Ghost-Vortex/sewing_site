@@ -424,3 +424,57 @@ if (window.ymaps) {
     setTimeout(function () { banner.setAttribute('hidden', ''); }, 500);
   });
 })();
+
+// ============================================
+// POLISH PACK: анимация счёта чисел статистики
+// (.about-stat-num, .works-stat-num)
+// ============================================
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  var nums = document.querySelectorAll('.about-stat-num, .works-stat-num');
+  if (!nums.length) return;
+
+  function fmt(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+
+  function animate(el) {
+    var raw = el.textContent.trim();
+    if (/[–—-]/.test(raw)) return; // диапазоны вида «10–25» не считаем
+    var m = raw.match(/^([\d\s ]+)(.*)$/);
+    if (!m) return;
+    var target = parseInt(m[1].replace(/[\s ]/g, ''), 10);
+    if (!target || target < 2) return;
+    var suffix = m[2] || '';
+    var start = null;
+    var dur = 1100;
+
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      el.textContent = fmt(Math.round(target * eased)) + suffix;
+      if (p < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = raw; // вернуть исходное написание
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('stat-counting');
+        animate(e.target);
+        io.unobserve(e.target);
+        setTimeout(function () { e.target.classList.remove('stat-counting'); }, 1600);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  nums.forEach(function (el) { io.observe(el); });
+})();

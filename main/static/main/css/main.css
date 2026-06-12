@@ -4346,3 +4346,49 @@ body.page-leaving {
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================
+   POLISH PACK — июнь 2026
+   Счёт цифр, микро-hover'ы. Уважает reduced-motion.
+============================================ */
+
+.about-stat-num,
+.works-stat-num {
+  transition: text-shadow 0.45s ease;
+}
+
+.stat-counting {
+  text-shadow: 0 0 26px rgba(140, 120, 255, 0.35);
+}
+
+.about-price-row {
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.about-price-row:hover {
+  transform: translateX(6px);
+}
+
+.about-price-row:hover .about-price-val {
+  color: #fff;
+}
+
+.svc-format-pills .svc-pill {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.svc-format-pills .svc-pill:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-stat-num,
+  .works-stat-num,
+  .about-price-row,
+  .svc-format-pills .svc-pill {
+    transition: none;
+  }
+  .stat-counting {
+    text-shadow: none;
+  }
+}
