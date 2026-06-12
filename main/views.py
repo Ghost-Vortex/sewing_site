@@ -3,11 +3,12 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 from django.views.decorators.cache import cache_page
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 
 from .models import Lead, Work
 from .forms import ContactForm
 from .utils import send_telegram_message
+from .services_data import SERVICES
 
 
 def contact_submit(request):
@@ -75,7 +76,20 @@ def home(request):
 
 @cache_page(60 * 60)
 def services(request):
-    return render(request, "main/services.html")
+    return render(request, "main/services.html", {"services_pages": SERVICES.values()})
+
+
+@cache_page(60 * 60)
+def service_detail(request, slug):
+    service = SERVICES.get(slug)
+    if service is None:
+        raise Http404
+    related = [SERVICES[s] for s in service["related"] if s in SERVICES]
+    return render(
+        request,
+        "main/service_detail.html",
+        {"service": service, "related": related},
+    )
 
 
 def works(request):

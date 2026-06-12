@@ -1,6 +1,20 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
+from .services_data import SERVICES
+
+
+class ServiceSitemap(Sitemap):
+    protocol = "https"
+    priority = 0.85
+    changefreq = "monthly"
+
+    def items(self):
+        return list(SERVICES.keys())
+
+    def location(self, item):
+        return reverse("service_detail", args=[item])
+
 
 class StaticViewSitemap(Sitemap):
     protocol = "https"

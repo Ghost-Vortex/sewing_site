@@ -246,6 +246,31 @@
 
 
 <!-- ========================
+     ПОДРОБНЫЕ СТРАНИЦЫ УСЛУГ
+======================== -->
+{% if services_pages %}
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Подробнее</p>
+    <h2 class="about-section-title">Услуги с ценами</h2>
+    <p class="about-section-sub">Условия, прайс и ответы на вопросы — на странице каждой услуги.</p>
+  </div>
+
+  <div class="svc-grid">
+    {% for page in services_pages %}
+    <div class="svc-card">
+      <div class="svc-num">{{ forloop.counter|stringformat:"02d" }}</div>
+      <h3 class="svc-title">{{ page.name }}</h3>
+      <p class="svc-desc">{{ page.lead|truncatechars:110 }}</p>
+      <a href="{% url 'service_detail' page.slug %}" class="btn btn-outline-light mt-2">Подробнее →</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+
+<!-- ========================
      CTA
 ======================== -->
 <section class="container about-section mb-5 reveal">

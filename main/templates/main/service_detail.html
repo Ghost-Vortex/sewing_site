@@ -1,0 +1,238 @@
+{% extends "main/base.html" %}
+{% block canonical_path %}/services/{{ service.slug }}/{% endblock %}
+{% block og_url_path %}/services/{{ service.slug }}/{% endblock %}
+{% load static %}
+
+{% block title %}{{ service.title }}{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="{{ service.meta_description }}">
+{% endblock %}
+{% block og_title %}{{ service.og_title }}{% endblock %}
+{% block og_description %}{{ service.meta_description }}{% endblock %}
+{% block tw_title %}{{ service.og_title }}{% endblock %}
+
+{% block breadcrumbs_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Главная","item":"https://ulagasheff.ru/"},
+    {"@type":"ListItem","position":2,"name":"Услуги","item":"https://ulagasheff.ru/services/"},
+    {"@type":"ListItem","position":3,"name":"{{ service.name|escapejs }}","item":"https://ulagasheff.ru/services/{{ service.slug }}/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ service.name|escapejs }}",
+  "description": "{{ service.meta_description|escapejs }}",
+  "url": "https://ulagasheff.ru/services/{{ service.slug }}/",
+  "provider": {"@id": "https://ulagasheff.ru/#organization"},
+  "areaServed": {"@type": "Country", "name": "RU"}{% if service.offer %},
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "{{ service.offer.low }}",
+    "highPrice": "{{ service.offer.high }}",
+    "priceCurrency": "RUB"
+  }{% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in service.faq %}
+    {
+      "@type": "Question",
+      "name": "{{ item.q|escapejs }}",
+      "acceptedAnswer": {"@type": "Answer", "text": "{{ item.a|escapejs }}"}
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ========================
+     HERO
+======================== -->
+<section class="about-hero reveal">
+  <div class="container">
+    <div class="about-hero-inner">
+      <div class="about-hero-text">
+        <p class="about-eyebrow">{{ service.eyebrow }}</p>
+        <h1 class="about-hero-title">{{ service.h1 }}</h1>
+      </div>
+      <div class="about-hero-desc">
+        <p class="about-hero-lead">{{ service.lead }}</p>
+        <p class="about-hero-sub">{{ service.sub }}</p>
+        <div class="svc-format-pills">
+          {% for pill in service.pills %}
+          <span class="svc-pill svc-pill--{% cycle 'a' 'b' 'c' %}">{{ pill }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="about-stats">
+      {% for stat in service.stats %}
+      <div class="about-stat">
+        <span class="about-stat-num">{{ stat.num }}</span>
+        <span class="about-stat-unit">{{ stat.unit }}</span>
+        <span class="about-stat-label">{{ stat.label }}</span>
+      </div>
+      {% if not forloop.last %}<div class="about-stat-divider"></div>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     ТЕКСТОВЫЕ СЕКЦИИ
+======================== -->
+{% for section in service.sections %}
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">{% if forloop.first %}Подробнее{% else %}Условия{% endif %}</p>
+    <h2 class="about-section-title">{{ section.heading }}</h2>
+  </div>
+  <div class="about-hero-desc">
+    {% for p in section.paragraphs %}
+    <p class="about-hero-sub">{{ p }}</p>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+
+<!-- ========================
+     ПРАЙС
+======================== -->
+{% if service.price_rows %}
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Стоимость</p>
+    <h2 class="about-section-title">Цены</h2>
+    {% if service.price_note %}
+    <p class="about-section-sub">{{ service.price_note }}</p>
+    {% endif %}
+  </div>
+
+  <div class="about-price-table">
+    <div class="about-price-head">
+      <span>Модель</span>
+      <span>Давальческая</span>
+      <span>Под ключ</span>
+    </div>
+    {% for row in service.price_rows %}
+    <div class="about-price-row">
+      <span class="about-price-name">{{ row.name }}</span>
+      <span class="about-price-val">{{ row.dav }}</span>
+      <span class="about-price-val about-price-full">{{ row.full }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+
+<!-- ========================
+     ЧТО ВХОДИТ
+======================== -->
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Состав услуги</p>
+    <h2 class="about-section-title">Что входит</h2>
+  </div>
+
+  <div class="svc-list">
+    {% for item in service.includes %}
+    <div class="svc-list-item">
+      <div class="svc-list-left">
+        <span class="svc-list-num">{{ item.num }}</span>
+        <span class="svc-list-icon">{{ item.icon }}</span>
+        <h3 class="svc-list-title">{{ item.title }}</h3>
+      </div>
+      <p class="svc-list-desc">{{ item.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<!-- ========================
+     FAQ
+======================== -->
+<section class="container about-section reveal faq-section">
+  <div class="about-section-header">
+    <p class="about-eyebrow">FAQ</p>
+    <h2 class="about-section-title">Частые вопросы</h2>
+  </div>
+
+  <div class="faq-list" style="max-width:780px;">
+    {% for item in service.faq %}
+    <div class="faq-item">
+      <button class="faq-trigger" aria-expanded="false">
+        <span>{{ item.q }}</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body"><p>{{ item.a }}</p></div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<!-- ========================
+     СМЕЖНЫЕ УСЛУГИ
+======================== -->
+{% if related %}
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Смежные услуги</p>
+    <h2 class="about-section-title">Вам может пригодиться</h2>
+  </div>
+
+  <div class="svc-grid">
+    {% for rel in related %}
+    <div class="svc-card">
+      <div class="svc-num">{{ forloop.counter|stringformat:"02d" }}</div>
+      <h3 class="svc-title">{{ rel.name }}</h3>
+      <p class="svc-desc">{{ rel.meta_description|truncatechars:120 }}</p>
+      <a href="{% url 'service_detail' rel.slug %}" class="btn btn-outline-light mt-2">Подробнее →</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+
+<!-- ========================
+     CTA
+======================== -->
+<section class="container about-section mb-5 reveal">
+  <div class="cta-section">
+    <div class="cta-inner text-center">
+      <span class="cta-badge mb-3 d-inline-block">Расчёт за 1 рабочий день</span>
+      <h2 class="fw-bold mb-3">Рассчитать ваш тираж?</h2>
+      <p class="text-white-50 mb-4" style="max-width:500px;margin:0 auto 1.5rem;">
+        Пришлите ТЗ, фото или референсы — предложим материалы,
+        посчитаем стоимость и сроки производства.
+      </p>
+      <a href="{% url 'contacts' %}" class="btn btn-light px-5 py-3 fw-semibold">
+        Оставить заявку
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

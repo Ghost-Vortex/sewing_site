@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 from main.views import (
     home,
     services,
+    service_detail,
     works,
     about,
     contacts,
@@ -15,10 +16,11 @@ from main.views import (
     contact_submit
 )
 
-from main.sitemaps import StaticViewSitemap
+from main.sitemaps import StaticViewSitemap, ServiceSitemap
 
 sitemaps = {
-    'static': StaticViewSitemap
+    'static': StaticViewSitemap,
+    'services': ServiceSitemap,
 }
 
 handler404 = 'main.views.page_not_found'
@@ -28,6 +30,7 @@ urlpatterns = [
     # ---- Основные страницы ----
     path('', home, name='home'),
     path('services/', services, name='services'),
+    path('services/<slug:slug>/', service_detail, name='service_detail'),
     path('works/', works, name='works'),
     path('about/', about, name='about'),
     path('contacts/', contacts, name='contacts'),
