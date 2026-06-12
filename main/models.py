@@ -1,4 +1,22 @@
+import re
+
 from django.db import models
+
+_TRANSLIT = {
+    'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e',
+    'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
+    'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+    'ф': 'f', 'х': 'h', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'sch',
+    'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya',
+}
+
+
+def slugify_ru(text):
+    """Кириллица -> латинский slug: «Туника удлинённая» -> tunika-udlinennaya."""
+    text = text.lower()
+    text = ''.join(_TRANSLIT.get(ch, ch) for ch in text)
+    text = re.sub(r'[^a-z0-9]+', '-', text).strip('-')
+    return text[:200] or 'work'
 
 
 class Lead(models.Model):
@@ -33,6 +51,13 @@ class Work(models.Model):
     is_active = models.BooleanField('Показывать', default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    # --- Поля кейса (страница /works/<slug>/) ---
+    slug = models.SlugField('URL (заполняется само)', max_length=220, unique=True, null=True, blank=True)
+    fabric = models.CharField('Ткань', max_length=200, blank=True, help_text='Например: футер 3-нитка с начёсом')
+    quantity = models.CharField('Тираж', max_length=100, blank=True, help_text='Например: 300 ед.')
+    lead_time = models.CharField('Срок', max_length=100, blank=True, help_text='Например: 14 рабочих дней')
+    body = models.TextField('Текст кейса', blank=True, help_text='Задача, решение, детали. Пустая строка = новый абзац.')
+
     class Meta:
         ordering = ['order', '-created_at']
         verbose_name = 'Работа'
@@ -42,7 +67,15 @@ class Work(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        """Сжимаем фото при сохранении: до 1920px по длинной стороне."""
+        """Авто-slug + сжатие фото до 1920px по длинной стороне."""
+        if not self.slug and self.title:
+            base = slugify_ru(self.title)
+            slug = base
+            n = 2
+            while Work.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+                slug = f"{base}-{n}"
+                n += 1
+            self.slug = slug
         super().save(*args, **kwargs)
         if self.image:
             try:

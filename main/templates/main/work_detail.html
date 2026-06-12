@@ -1,0 +1,108 @@
+{% extends "main/base.html" %}
+{% block canonical_path %}/works/{{ work.slug }}/{% endblock %}
+{% block og_url_path %}/works/{{ work.slug }}/{% endblock %}
+{% load static %}
+
+{% block title %}{{ work.title }} — кейс швейного производства | Ulagasheff{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="{{ work.title }}: кейс производства Ulagasheff.{% if work.fabric %} Ткань: {{ work.fabric }}.{% endif %}{% if work.quantity %} Тираж: {{ work.quantity }}.{% endif %}{% if work.lead_time %} Срок: {{ work.lead_time }}.{% endif %} Пошив одежды для брендов в Москве.">
+{% endblock %}
+{% block og_title %}{{ work.title }} · кейс Ulagasheff{% endblock %}
+
+{% block breadcrumbs_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Главная","item":"https://ulagasheff.ru/"},
+    {"@type":"ListItem","position":2,"name":"Работы","item":"https://ulagasheff.ru/works/"},
+    {"@type":"ListItem","position":3,"name":"{{ work.title|escapejs }}","item":"https://ulagasheff.ru/works/{{ work.slug }}/"}
+  ]
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="about-hero reveal">
+  <div class="container">
+    <div class="about-hero-inner">
+      <div class="about-hero-text">
+        <p class="about-eyebrow">Кейс · {{ work.get_category_display }}</p>
+        <h1 class="about-hero-title" style="font-size:clamp(1.8rem,4vw,3rem);">{{ work.title }}</h1>
+      </div>
+      <div class="about-hero-desc">
+        {% if work.description %}<p class="about-hero-lead">{{ work.description }}</p>{% endif %}
+        <div class="svc-format-pills">
+          {% if work.fabric %}<span class="svc-pill svc-pill--a">{{ work.fabric }}</span>{% endif %}
+          {% if work.quantity %}<span class="svc-pill svc-pill--b">{{ work.quantity }}</span>{% endif %}
+          {% if work.lead_time %}<span class="svc-pill svc-pill--c">{{ work.lead_time }}</span>{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container about-section reveal">
+  <div class="home-prod-grid">
+    <div class="production-photo-card home-prod-wide">
+      <div class="production-photo-inner">
+        <img src="{{ work.image.url }}" alt="{{ work.title }} — пошив на производстве Ulagasheff" fetchpriority="high">
+      </div>
+      <div class="production-photo-label">{{ work.get_category_display }}</div>
+    </div>
+  </div>
+</section>
+
+{% if body_paragraphs %}
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Как это шилось</p>
+    <h2 class="about-section-title">О проекте</h2>
+  </div>
+  <div class="about-hero-desc" style="max-width:860px;">
+    {% for p in body_paragraphs %}
+    <p class="about-hero-sub">{{ p }}</p>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if related %}
+<section class="container about-section reveal">
+  <div class="about-section-header">
+    <p class="about-eyebrow">Портфолио</p>
+    <h2 class="about-section-title">Другие работы</h2>
+  </div>
+  <div class="home-prod-grid">
+    {% for rel in related %}
+    <div class="production-photo-card">
+      <div class="production-photo-inner">
+        {% if rel.slug %}<a href="{% url 'work_detail' rel.slug %}">{% endif %}
+        <img src="{{ rel.image.url }}" alt="{{ rel.title }}" loading="lazy">
+        {% if rel.slug %}</a>{% endif %}
+      </div>
+      <div class="production-photo-label">{{ rel.title }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="container about-section mb-5 reveal">
+  <div class="cta-section">
+    <div class="cta-inner text-center">
+      <span class="cta-badge mb-3 d-inline-block">Расчёт за 1 рабочий день</span>
+      <h2 class="fw-bold mb-3">Хотите так же?</h2>
+      <p class="text-white-50 mb-4" style="max-width:500px;margin:0 auto 1.5rem;">
+        Отшиваем похожие изделия под ваш бренд — пришлите референс, посчитаем тираж.
+      </p>
+      <a href="{% url 'contacts' %}" class="btn btn-light px-5 py-3 fw-semibold">Оставить заявку</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "main/base.html" %}
+{% block canonical_path %}/blog/{% endblock %}
+{% block og_url_path %}/blog/{% endblock %}
+{% load static %}
+
+{% block title %}Блог о швейном производстве — цены, схемы работы, запуск бренда | Ulagasheff{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Блог швейного производства Ulagasheff: сколько стоит пошив, как запустить бренд одежды, давальческая схема или под ключ. Опыт реального производства в Москве.">
+{% endblock %}
+{% block og_title %}Блог о швейном производстве · Ulagasheff{% endblock %}
+{% block og_description %}Цены, схемы работы с производством, запуск бренда одежды — статьи от практиков.{% endblock %}
+
+{% block breadcrumbs_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Главная","item":"https://ulagasheff.ru/"},{"@type":"ListItem","position":2,"name":"Блог","item":"https://ulagasheff.ru/blog/"}]
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="about-hero reveal">
+  <div class="container">
+    <div class="about-hero-inner">
+      <div class="about-hero-text">
+        <p class="about-eyebrow">Блог</p>
+        <h1 class="about-hero-title">Про производство<br>без воды</h1>
+      </div>
+      <div class="about-hero-desc">
+        <p class="about-hero-lead">
+          Цены, схемы работы, запуск бренда — отвечаем на вопросы,
+          которые задают нам бренды и селлеры перед первым тиражом.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container about-section reveal">
+  <div class="svc-grid">
+    {% for post in posts %}
+    <div class="svc-card">
+      <div class="svc-meta">{{ post.date }} · {{ post.reading_time }}</div>
+      <h2 class="svc-title">{{ post.h1 }}</h2>
+      <p class="svc-desc">{{ post.lead|truncatechars:150 }}</p>
+      <a href="{% url 'blog_post' post.slug %}" class="btn btn-outline-light mt-2">Читать →</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="container about-section mb-5 reveal">
+  <div class="cta-section">
+    <div class="cta-inner text-center">
+      <span class="cta-badge mb-3 d-inline-block">Расчёт за 1 рабочий день</span>
+      <h2 class="fw-bold mb-3">Есть проект на пошив?</h2>
+      <p class="text-white-50 mb-4" style="max-width:500px;margin:0 auto 1.5rem;">
+        Пришлите ТЗ или референсы — посчитаем стоимость и сроки.
+      </p>
+      <a href="{% url 'contacts' %}" class="btn btn-light px-5 py-3 fw-semibold">Оставить заявку</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

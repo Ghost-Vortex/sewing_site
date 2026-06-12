@@ -9,6 +9,7 @@ from .models import Lead, Work
 from .forms import ContactForm
 from .utils import send_telegram_message
 from .services_data import SERVICES
+from .blog_data import POSTS
 
 
 def contact_submit(request):
@@ -95,6 +96,40 @@ def service_detail(request, slug):
 def works(request):
     works_qs = Work.objects.filter(is_active=True)
     return render(request, "main/works.html", {"works": works_qs})
+
+
+def work_detail(request, slug):
+    try:
+        work = Work.objects.get(slug=slug, is_active=True)
+    except Work.DoesNotExist:
+        raise Http404
+    body_paragraphs = [p.strip() for p in (work.body or "").split("\n") if p.strip()]
+    related = Work.objects.filter(is_active=True).exclude(pk=work.pk)[:3]
+    return render(request, "main/work_detail.html", {
+        "work": work,
+        "body_paragraphs": body_paragraphs,
+        "related": related,
+    })
+
+
+@cache_page(60 * 60)
+def blog(request):
+    posts = sorted(POSTS.values(), key=lambda p: p["date"], reverse=True)
+    return render(request, "main/blog_list.html", {"posts": posts})
+
+
+@cache_page(60 * 60)
+def blog_post(request, slug):
+    post = POSTS.get(slug)
+    if post is None:
+        raise Http404
+    related_services = [SERVICES[s] for s in post.get("related_services", []) if s in SERVICES]
+    related_posts = [POSTS[s] for s in post.get("related_posts", []) if s in POSTS]
+    return render(request, "main/blog_post.html", {
+        "post": post,
+        "related_services": related_services,
+        "related_posts": related_posts,
+    })
 
 
 @cache_page(60 * 60)

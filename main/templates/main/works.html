@@ -90,6 +90,7 @@
               {% if work.description %}<p class="wc-note">{{ work.description }}</p>{% endif %}
             </div>
           </div>
+          {% if work.slug %}<a href="{% url 'work_detail' work.slug %}" class="stretched-link" aria-label="Кейс: {{ work.title }}"></a>{% endif %}
         </div>
       </div>
       {% endfor %}

@@ -10,17 +10,22 @@ from main.views import (
     services,
     service_detail,
     works,
+    work_detail,
     about,
     contacts,
     privacy,
-    contact_submit
+    contact_submit,
+    blog,
+    blog_post,
 )
 
-from main.sitemaps import StaticViewSitemap, ServiceSitemap
+from main.sitemaps import StaticViewSitemap, ServiceSitemap, BlogSitemap, WorkSitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
     'services': ServiceSitemap,
+    'blog': BlogSitemap,
+    'works': WorkSitemap,
 }
 
 handler404 = 'main.views.page_not_found'
@@ -32,6 +37,9 @@ urlpatterns = [
     path('services/', services, name='services'),
     path('services/<slug:slug>/', service_detail, name='service_detail'),
     path('works/', works, name='works'),
+    path('works/<slug:slug>/', work_detail, name='work_detail'),
+    path('blog/', blog, name='blog'),
+    path('blog/<slug:slug>/', blog_post, name='blog_post'),
     path('about/', about, name='about'),
     path('contacts/', contacts, name='contacts'),
 
